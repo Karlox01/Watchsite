@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure--tioj)g!k6y2k5c)2d(qj9b7t98)zr42324o=20t(3lkr#e&ge
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+
+CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io', 'https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
 
 
 # Application definition
@@ -38,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'watchapp',
+    'watches',
 ]
 
 MIDDLEWARE = [
@@ -117,6 +120,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
