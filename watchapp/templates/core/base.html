@@ -20,10 +20,16 @@
             <a href="#" class="text-lg  hover:text-gray-500">New item</a>
             <a href="#" class="text-lg  hover:text-gray-500">Browse</a>
 
-            <a href="#" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Sign
+            {% if request.user.is_authenticated %}
+            <a href="#" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Inbox</a>
+            <a href="#" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Dashboard</a>
+            {% else %}
+
+            <a href="{% url 'watchapp:signup' %}" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Sign
                 up</a>
-            <a href="#" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Sign
+            <a href="{% url 'watchapp:login' %}" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Sign
                 in</a>
+            {% endif %}
         </div>
     </nav>
     <div class="px-6 py-6">
@@ -44,7 +50,7 @@
 
             <ul class="space-y-2">
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">About</a></li>
-                <li><a href="{% url 'contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
+                <li><a href="{% url 'watchapp:contact' %}" class="text-lg text-teal-500 hover:text-teal-700">Contact</a></li>
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Our Story</a></li>
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700">Terms and conditions</a></li>
             </ul>

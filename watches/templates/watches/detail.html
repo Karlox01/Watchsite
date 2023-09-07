@@ -1,0 +1,51 @@
+{% extends 'core/base.html' %}
+
+{% block title %}{{ item.name }}{% endblock %}
+
+{% block content %}
+<div class="grid grid-cols-1 gap-6">
+    <div class="p-6 bg-gray-200 rounded-xl text-center">
+        <h1 class="mb-6 text-6xl bg-gray-100 p-4 rounded"> {{ item.name }}</h1>
+        <div class="flex justify-center">
+            <img src="{{ item.image.url }}" class="rounded w-1/4">
+        </div>
+        <p class="text-gray-800 m-5">
+            <strong>Price: £</strong><br> {{ item.price }}
+        </p>
+        <p class="text-gray-800 m-5">
+            <strong>Contact: </strong><br>{{ item.created_by.username }}
+        </p>
+        {% if item.description %}
+        <p class="text-gray-800 m-5">
+            <strong>Description: </strong><br>{{ item.description }}
+        </p>
+        {% endif %}
+
+        <a href="{% url 'watches:submit_offer' item.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Submit an offer</a>
+    </div>
+</div>
+
+
+</div>
+<div class="mt-6 px-6 py-12 rounded-xl bg-gradient-to-r from-gray-100 via-gray-300 to-black-200">
+    <h2 class="mb-12 text-4xl text-center uppercase w-full" style="padding: 20px; font-family: Lato;"> Related Items </h2>
+
+    <div class="grid grid-cols-3 gap-3">
+        {% for watch in related_items %}
+        <div>
+            <a href="{% url 'watches:detail' watch.id %}">
+                <div>
+                    <img src="{{ watch.image.url }}" class="w-2/4 h-auto object-contain" style="margin: 0 auto;">
+                </div>
+
+                <div class="p-6 rounded-xl mt-4 border-l-4 border-gray-500" style="background-color: lightgray;">
+                    <h2 class="text-lg uppercase text-center" style="font-family: Roboto; margin: 0 auto;">{{ watch.name }}</h2>
+                    <p class="tracking-tight text-xs text-center" style="font-family: Lato;">Price: {{ watch.price }} £ GBP</p>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
