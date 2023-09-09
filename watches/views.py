@@ -50,3 +50,16 @@ def submit_offer(request, pk):
         return render(request, 'watches/thanks.html')
 
     return render(request, 'watches/submit_offer.html', {'item': item})
+
+
+def watches_by_category(request, category_name):
+    category = get_object_or_404(Category, name=category_name)
+    items = Item.objects.filter(category=category, is_sold=False)
+    
+    # You can reuse the 'items' template to display watches by category
+    return render(request, 'watches/items.html', {
+        'items': items,
+        'query': '',  # You can customize this as needed
+        'categories': Category.objects.all(),
+        'category_id': category.id,  # Pass the category id to identify the selected category
+    })

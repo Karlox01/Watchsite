@@ -4,7 +4,8 @@
 
 {% block content %}
 <div class="mt-6 px-6 py-12 rounded-xl bg-gradient-to-r from-gray-100 via-gray-300 to-black-200">
-    <h2 class="mb-12 text-4xl text-center uppercase w-full" style="padding: 20px; font-family: Lato;"> Current stock </h2>
+    <h2 class="mb-12 text-4xl text-center uppercase w-full" style="padding: 20px; font-family: Lato;"> Current stock
+    </h2>
 
     <div class="grid grid-cols-3 gap-3">
         {% for watch in items %}
@@ -15,12 +16,17 @@
                 </div>
 
                 <div class="p-6 rounded-xl mt-4 border-l-4 border-gray-500" style="background-color: lightgray;">
-                    <h2 class="text-lg uppercase text-center" style="font-family: Roboto; margin: 0 auto;">{{ watch.name }}</h2>
-                    <p class="tracking-tight text-xs text-center" style="font-family: Lato;">Price: {{ watch.price }} £ GBP</p>
+                    <h2 class="text-lg uppercase text-center" style="font-family: Roboto; margin: 0 auto;">
+                        {{ watch.name }}</h2>
+                    <p class="tracking-tight text-xs text-center" style="font-family: Lato;">Price: {{ watch.price }} £
+                        GBP</p>
                     <p class="text-center text-xs mt-2">
-                        <a href="{{ watch.ebay_link }}" target="_blank" class="text-blue-600 hover:underline">View on eBay</a>
+                        <a href="{{ watch.ebay_link }}" target="_blank" class="text-blue-600 hover:underline">View on
+                            eBay</a>
                     </p>
-                    <a href="{% url 'watches:submit_offer' watch.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Submit an Offer</a>
+                    <a href="{% url 'watches:submit_offer' watch.pk %}"
+                        class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Submit
+                        an Offer</a>
                 </div>
             </a>
         </div>
@@ -29,23 +35,20 @@
 </div>
 
 
-    <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-        <h2 class="mb-12 text-2xl text-center"> Categories </h2>
+<div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
+    <h2 class="mb-12 text-2xl text-center"> Categories </h2>
 
-        <div class="grid grid-cols-3 gap-3">
-            {% for category in categories %}
-
-            <div>
-                <a href="#">
-                    <div class="p-6 bg-white-rounded-b-xl">
-                        <h2 class="text-2xl font-bold tracking-wider " style="font-family: Lato;">{{ category.name }}</h2>
-                        <p class="text-gray-500">{{ category.items.count }} Items</p>
-                    </div>
-                </a>
-            </div>
-
-
-            {% endfor %}
+    <div class="grid grid-cols-3 gap-3">
+        {% for category in categories %}
+        <div>
+            <a href="{% url 'watches:watches_by_category' category_name=category.name %}">
+                <div class="p-6 bg-white-rounded-b-xl">
+                    <h2 class="text-2xl font-bold tracking-wider " style="font-family: Lato;">{{ category.name }}</h2>
+                    <p class="text-gray-500">{{ category.items.count }} Items</p>
+                </div>
+            </a>
         </div>
+        {% endfor %}
     </div>
+</div>
 {% endblock %}
