@@ -1,0 +1,57 @@
+{% extends 'core/base.html' %}
+
+{% block title %} Items {% endblock %}
+
+{% block content %}
+    <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
+        <div class="col-span-1">
+            <form method="get" action="{% url 'watches:items' %}">
+                <input name="query" class="w-full py-4 px-6 border rounded-xl" type="text" value="{{ query }}" placeholder="Find Your Watch">
+
+                <button class="mt-2 py-4 px-8 text-lg bg-teal-500 text-white rounded-xl">Search</button>
+            </form>
+            <hr class="my-6">
+
+            <p class="font-semibold">Categories</p>
+            <ul>
+                {% for category in categories %}
+                    <li class="py-2 px-2 rounded-xl{% if category.id == category_id %} bg-gray-200 {% endif %}">
+                        <a href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+            <hr class="my-6">
+
+            <p class="font-semibold">Clear filters</p>
+
+            <ul>
+                <li>
+                    <a href="{% url 'watches:items' %}" class="mt-2 py-4 inline-block bg-yellow-500 text-lg rounded-xl text-white w-full text-center"> Clear </a>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-span-3">
+            <div class="grid grid-cols-3 gap-3">
+                {% for watch in items %}
+                <div>
+                    <a href="{% url 'watches:detail' watch.id %}">
+                        <div>
+                            <img src="{{ watch.image.url }}" class="w-2/4 h-auto object-contain" style="margin: 0 auto;">
+                        </div>
+        
+                        <div class="p-6 rounded-xl mt-4 border-l-4 border-gray-500" style="background-color: lightgray;">
+                            <h2 class="text-lg uppercase text-center" style="font-family: Roboto; margin: 0 auto;">{{ watch.name }}</h2>
+                            <p class="tracking-tight text-xs text-center" style="font-family: Lato;">Price: {{ watch.price }} £ GBP</p>
+                            <p class="text-center text-xs mt-2">
+                                <a href="{{ watch.ebay_link }}" target="_blank" class="text-blue-600 hover:underline">View on eBay</a>
+                            </p>
+                            <a href="{% url 'watches:submit_offer' watch.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Submit an Offer</a>
+                        </div>
+                    </a>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}

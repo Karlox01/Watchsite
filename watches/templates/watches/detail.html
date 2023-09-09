@@ -22,6 +22,7 @@
         {% endif %}
 
         <a href="{% url 'watches:submit_offer' item.pk %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl">Submit an offer</a>
+        <a href="{% url 'conversation:new' item.id %}" class="inline-block mt-6 px-6 py-3 text-lg font-semibold bg-teal-500 text-white hover:bg-teal-700 rounded-xl"> Message seller</a>
     </div>
 </div>
 
