@@ -10,6 +10,9 @@ from .models import Category, Item
 def items(request):
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
@@ -19,11 +22,42 @@ def items(request):
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
+    # Apply price filter if provided
+    if min_price:
+        items = items.filter(price__gte=min_price)
+
+    if max_price:
+        items = items.filter(price__lte=max_price)
+
     return render(request, 'watches/items.html', {
         'items': items,
         'query': query,
         'categories': categories,
-        'category_id': int(category_id)
+        'category_id': int(category_id),
+        'min_price': min_price,
+        'max_price': max_price,
+    })
+
+# views.py
+def filtered_watches_by_price(request):
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+
+    # Retrieve all categories to display in the filter
+    categories = Category.objects.all()
+
+    # Retrieve all items that match the price filter
+    items = Item.objects.filter(is_sold=False)
+
+    if min_price:
+        items = items.filter(price__gte=min_price)
+
+    if max_price:
+        items = items.filter(price__lte=max_price)
+
+    return render(request, 'watches/items.html', {
+        'items': items,
+        'categories': categories,  # Include categories in the context
     })
 
 def detail(request, pk):
