@@ -23,6 +23,7 @@
             {% if request.user.is_authenticated %}
             <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Inbox</a>
             <a href="#" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Dashboard</a>
+            <a href="{% url 'watchapp:logout' %}" class="px-6 py-3 text-lg bg-red-500 text-white rounded-xl hover:bg-red-700 font-family:Roboto">Logout</a>
             {% else %}
 
             <a href="{% url 'watchapp:signup' %}" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Sign

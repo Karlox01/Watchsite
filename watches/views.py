@@ -3,8 +3,9 @@ from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.models import User
 from django.contrib.auth.models import Group
+from django.contrib.auth.decorators import login_required
 
-from .models import Category, Item
+from .models import Category, Item, Offer
 
 
 def items(request):
@@ -69,11 +70,15 @@ def detail(request, pk):
         'related_items': related_items
     })
 
+@login_required
 def submit_offer(request, pk):
     item = get_object_or_404(Item, pk=pk)
 
     if request.method == 'POST':
         offer_amount = request.POST.get('offer_amount')
+
+        offer = Offer(item=item, offer_amount=offer_amount)
+        offer.save()
 
         admin_group = Group.objects.get(name='Admins')
         admin_users = admin_group.user_set.all()

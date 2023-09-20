@@ -22,5 +22,16 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ebay_link = models.URLField(blank=True, null=True)
 
+    item_offers = models.ManyToManyField('Offer', related_name='items', blank=True)
+
     def __str__(self):
         return self.name
+
+class Offer(models.Model):
+    item = models.ForeignKey(Item, related_name='offers', on_delete=models.CASCADE)
+    offer_amount = models.DecimalField(max_digits=10, decimal_places=2)  # Use DecimalField for currency
+    is_accepted = models.BooleanField(default=False)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Offer of ${self.offer_amount} on {self.item.name}'

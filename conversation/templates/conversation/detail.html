@@ -2,7 +2,6 @@
 
 {% block title %} Conversation {% endblock %}
 
-
 {% block content %}
 <h1 class="mb-6 text-3xl"> Conversation </h1>
 
@@ -13,6 +12,9 @@
             <p class="mb-4">
                 <strong>{{ message.created_by.username }}</strong> @ {{ message.created_at }}
                 <p>{{ message.content }}</p>
+                {% if message.is_offer %}
+                <p><strong>Offer:</strong> {{ message.content }}</p>
+                {% endif %}
             </p>
         </div>
     </div>

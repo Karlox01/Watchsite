@@ -2,7 +2,6 @@
 
 {% block title %} Inbox {% endblock %}
 
-
 {% block content %}
 <h1 class="mb-6 text-3xl"> Inbox </h1>
 
@@ -18,6 +17,11 @@
                         {% if member != request.user %}
                             <p class="mb-4"><strong> {{ member.username }}</strong> | {{ conversation.modified_at }}</p>
                             <p> {{ conversation.item.name }}</p>
+                            {% with latest_message=conversation.messages.last %}
+                                {% if latest_message.is_offer %}
+                                    <p><strong>Latest Offer:</strong> {{ latest_message.content }}</p>
+                                {% endif %}
+                            {% endwith %}
                         {% endif %}
                     {% endfor %}
                 </div>
