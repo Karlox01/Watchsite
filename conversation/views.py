@@ -10,7 +10,7 @@ def new_conversation(request, item_pk):
     item = get_object_or_404(Item, pk=item_pk)
 
     if item.created_by == request.user:
-        return redirect('dashboard:index')
+        return redirect('conversation:inbox')
 
     # Check if a conversation with the same members already exists
     conversations = Conversation.objects.filter(item=item, members=request.user)
@@ -48,18 +48,16 @@ def new_conversation(request, item_pk):
 def inbox(request):
     conversations = Conversation.objects.filter(members=request.user)
 
-    offers = []
-    for conversation in conversations:
-        # Assuming there's a foreign key relationship between Conversation and Item models
-        item = conversation.item  # Get the related item
-        item_offers = Offer.objects.filter(item=item)  # Access the related offer directly, not as a set
+    offer_messages = []
 
-        if item_offers:
-            offers.extend(item_offers)
+    for conversation in conversations:
+        messages = conversation.messages.filter(is_offer=True)  # Filter messages where is_offer is True
+        if messages.exists():
+            offer.messages.extend(messages)
 
     return render(request, 'conversation/inbox.html', {
         'conversations': conversations,
-        'offers': offers,
+        'offer_messages': offer_messages,
     })
 
 

@@ -15,13 +15,17 @@
                 <div>
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong> {{ member.username }}</strong> | {{ conversation.modified_at }}</p>
-                            <p> {{ conversation.item.name }}</p>
-                            {% with latest_message=conversation.messages.last %}
-                                {% if latest_message.is_offer %}
-                                    <p><strong>Latest Offer:</strong> {{ latest_message.content }}</p>
+                            <p class="mb-4"><strong>{{ member.username }}</strong> | {{ conversation.modified_at }}</p>
+                            <p>{{ conversation.item.name }}</p>
+                            
+                            <!-- Display all offer messages for this conversation -->
+                            {% for offer_message in offer_messages %}
+                                {% if offer_message.conversation == conversation %}
+                                    <div class="offer">
+                                        <p><strong>Offer:</strong> {{ offer_message.content }}</p>
+                                    </div>
                                 {% endif %}
-                            {% endwith %}
+                            {% endfor %}
                         {% endif %}
                     {% endfor %}
                 </div>

@@ -77,7 +77,7 @@ def submit_offer(request, pk):
     if request.method == 'POST':
         offer_amount = request.POST.get('offer_amount')
 
-        offer = Offer(item=item, offer_amount=offer_amount)
+        offer = Offer(item=item, offer_amount=offer_amount, created_by=request.user)
         offer.save()
 
         admin_group = Group.objects.get(name='Admins')

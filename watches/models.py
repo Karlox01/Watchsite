@@ -32,6 +32,7 @@ class Offer(models.Model):
     offer_amount = models.DecimalField(max_digits=10, decimal_places=2)  # Use DecimalField for currency
     is_accepted = models.BooleanField(default=False)
     timestamp = models.DateTimeField(auto_now_add=True)
+    created_by = models.ForeignKey(User, related_name='offers', on_delete=models.CASCADE)
 
     def __str__(self):
         return f'Offer of ${self.offer_amount} on {self.item.name}'
