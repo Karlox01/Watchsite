@@ -21,7 +21,6 @@ class Item(models.Model):
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     ebay_link = models.URLField(blank=True, null=True)
-
     item_offers = models.ManyToManyField('Offer', related_name='items', blank=True)
 
     def __str__(self):

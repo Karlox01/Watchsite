@@ -53,7 +53,7 @@ def inbox(request):
     for conversation in conversations:
         messages = conversation.messages.filter(is_offer=True)  # Filter messages where is_offer is True
         if messages.exists():
-            offer.messages.extend(messages)
+            offer_messages.extend(messages)
 
     return render(request, 'conversation/inbox.html', {
         'conversations': conversations,

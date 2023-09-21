@@ -6,6 +6,7 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
 from .models import Category, Item, Offer
+from conversation.models import Conversation, ConversationMessage
 
 
 def items(request):
@@ -77,18 +78,23 @@ def submit_offer(request, pk):
     if request.method == 'POST':
         offer_amount = request.POST.get('offer_amount')
 
-        offer = Offer(item=item, offer_amount=offer_amount, created_by=request.user)
-        offer.save()
+        # Create a new conversation for the offer
+        conversation = Conversation.objects.create(item=item)
+        conversation.members.add(request.user)
+        conversation.members.add(item.created_by)
 
-        admin_group = Group.objects.get(name='Admins')
-        admin_users = admin_group.user_set.all()
-        for admin_user in admin_users:
-            message = f"New offer for '{item.name}' received: £{offer_amount}."
-            messages.add_message(request, messages.INFO, message)
+        # Create the offer message within the conversation
+        offer_message = ConversationMessage.objects.create(
+            conversation=conversation,
+            content=f"New offer for '{item.name}' received: £{offer_amount}.",
+            created_by=request.user,
+            is_offer=True  # Set this as an offer message
+        )
 
         return render(request, 'watches/thanks.html')
 
     return render(request, 'watches/submit_offer.html', {'item': item})
+
 
 
 def watches_by_category(request, category_name):
