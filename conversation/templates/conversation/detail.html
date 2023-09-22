@@ -1,4 +1,6 @@
 {% extends 'core/base.html' %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
 
 {% block title %} Conversation {% endblock %}
 
@@ -11,9 +13,12 @@
         <div>
             <p class="mb-4">
                 <strong>{{ message.created_by.username }}</strong> Sent a message On {{ message.created_at }}
-                <p>{{ message.content }}</p>
                 {% if message.is_offer %}
-                <p><strong>Offer:</strong> {{ message.content }}</p>
+                <p class="offer-message"> <!-- Add the 'offer-message' class here -->
+                    <strong>Offer:</strong> <span class="offer-text">{{ message.content }}</span> <!-- Add the 'offer-text' class here -->
+                </p>
+                {% else %}
+                <p>{{ message.content }}</p>
                 {% endif %}
             </p>
         </div>

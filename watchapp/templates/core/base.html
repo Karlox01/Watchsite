@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,28 +9,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
     <title>{% block title %} {% endblock %} | Base </title>
 </head>
 
 <body>
 
-    <nav class="py-6 px-6 flex justify-between items-center border-b border-gray-200">
-        <a href="/" class="text-xl font-family:Roboto">Index</a>
+    <nav class="py-6 flex justify-between items-center border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-indigo-950">
+        <a href="/">
+            <img src="{{ MEDIA_URL }}item_images/cover.png" class="mr-8 h-15 w-20 sm:h-15 sm:w-40 rounded-xl" alt="Your Project Logo" />
+        </a>
 
         <div class="space-x-6">
-            <a href="{% url 'watches:items' %}" class="text-lg  hover:text-gray-500">Browse</a>
+            <a href="{% url 'watches:items' %}" class="text-xl rounded-lg cursive text-white hover:text-teal-700">Browse</a>
 
             {% if request.user.is_authenticated %}
-            <span class="text-lg text-lg">{{ request.user.username }}</span>
-            <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Inbox</a>
-            <a href="#" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Dashboard</a>
-            <a href="{% url 'watchapp:logout' %}" class="px-6 py-3 text-lg bg-red-500 text-white rounded-xl hover:bg-red-700 font-family:Roboto">Logout</a>
+            <span class="text-lg rounded-lg cursive text-white">Hello there {{ request.user.username }}</span>
+            <a href="{% url 'conversation:inbox' %}" class="px-6 py-3 rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">INBOX</a>
+            <a href="#" class="px-6 py-3 text-lg  rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">DASHBOARD</a>
+            <a href="{% url 'watchapp:logout' %}" class="px-6 py-3 text-lg bg-red-500 text-white rounded-xl hover:bg-red-700  cursive">LOG OUT</a>
             {% else %}
 
-            <a href="{% url 'watchapp:signup' %}" class="px-6 py-3 text-lg bg-teal-500 text-white rounded-xl hover:bg-teal-700 font-family:Roboto">Sign
+            <a href="{% url 'watchapp:signup' %}" class="px-6 py-3 text-lg  rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">Sign
                 up</a>
-            <a href="{% url 'watchapp:login' %}" class="px-6 py-3 text-lg  bg-gray-500 text-white rounded-xl hover:bg-gray-700 font-family:Roboto">Sign
+            <a href="{% url 'watchapp:login' %}" class="px-6 py-3 text-lg bg-indigo-700 text-white rounded-xl hover:bg-teal-700 cursive">Sign
                 in</a>
             {% endif %}
         </div>
