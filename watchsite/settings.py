@@ -29,7 +29,8 @@ DEBUG = True
 
 
 CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
-ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io', 'https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
