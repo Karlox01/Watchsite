@@ -22,6 +22,7 @@ class Item(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     ebay_link = models.URLField(blank=True, null=True)
     item_offers = models.ManyToManyField('Offer', related_name='items', blank=True)
+    year = models.PositiveIntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name

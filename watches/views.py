@@ -22,7 +22,7 @@ def items(request):
         items = items.filter(category_id=category_id)
 
     if query:
-        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(year__icontains=query))
 
     # Apply price filter if provided
     if min_price:
@@ -100,6 +100,13 @@ def submit_offer(request, pk):
 def watches_by_category(request, category_name):
     category = get_object_or_404(Category, name=category_name)
     items = Item.objects.filter(category=category, is_sold=False)
+
+    query = request.GET.get('query', '')
+
+    if query:
+        items = items.filter(
+            Q(name__icontains=query) | Q(description__icontains=query) | Q(year__icontains=query)
+        )  # Include year in the search
     
     # You can reuse the 'items' template to display watches by category
     return render(request, 'watches/items.html', {

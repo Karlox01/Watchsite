@@ -1,9 +1,11 @@
 .offer-message {
-    background-color: purple; /* Set the background color to dark grey for offer messages */
+    background-color: purple;
+    /* Set the background color to dark grey for offer messages */
 }
 
 .offer-message .offer-text {
-    color: purple; /* Set the text color to white for offer message content */
+    color: purple;
+    /* Set the text color to white for offer message content */
 }
 
 
@@ -13,6 +15,20 @@
     font-weight: bold;
 }
 
+.cursiv {
+    font-family: 'Dancing Script', cursive;
+}
+
 span {
     font-family: Roboto, san-serif;
+}
+
+.stock {
+    padding: 20px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 60px;
+}
+
+.image {
+    margin: 0 auto;
 }
