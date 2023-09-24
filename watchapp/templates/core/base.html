@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/4b8e303bca.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
@@ -31,7 +32,7 @@
             <span class="text-lg rounded-lg cursive text-white">Hello there {{ request.user.username }}</span>
             <a href="{% url 'conversation:inbox' %}"
                 class="px-6 py-3 rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">INBOX</a>
-            <a href="#"
+            <a href="../../../watches/templates/watches/watches_by_category.html"
                 class="px-6 py-3 text-lg  rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">DASHBOARD</a>
             <a href="{% url 'watchapp:logout' %}"
                 class="px-6 py-3 text-lg bg-red-500 text-white rounded-xl hover:bg-red-700 cursive">LOG OUT</a>

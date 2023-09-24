@@ -23,6 +23,8 @@ class Item(models.Model):
     ebay_link = models.URLField(blank=True, null=True)
     item_offers = models.ManyToManyField('Offer', related_name='items', blank=True)
     year = models.PositiveIntegerField(null=True, blank=True)
+    has_box = models.BooleanField(default=False)
+    has_papers = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

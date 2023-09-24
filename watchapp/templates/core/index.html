@@ -18,13 +18,35 @@
                     <h2 class="text-lg uppercase text-center span">
                         {{ watch.name }}
                     </h2>
-                    <p class="text-s text-center cursiv"> {{ watch.price|intcomma }} <i class="fa-solid fa-sterling-sign"></i></p>
-                    <p class="text-center mt-1 font-semibold cursiv"> Year : <span class="font-light text-center cursiv">{{ watch.year }} </span></p>
+                    <p class="text-center font-semibold info mt-4"> Price : {{ watch.price|intcomma }} <i
+                            class="fa-solid fa-sterling-sign"></i></p>
+                    <p class="text-center mt-1 font-semibold info"> Year : <span
+                            class="text-center info">{{ watch.year }} </span></p>
+                    <div class="flex justify-center mt-2">
+                        <div class="text-center mr-4">
+                            <span class="font-semibold text-s info">With box</span>
+                            {% if watch.has_box %}
+                            <span class="font-light text-s"><i class="fa-solid fa-circle-check"></i></span>
+                            {% else %}
+                            <span class="font-light text-s"><i class="fa-regular fa-circle-xmark"></i></span>
+                            {% endif %}
+                        </div>
+
+                        <!-- Check if has_papers is True and display the icon accordingly -->
+                        <div class="text-center">
+                            <span class="font-semibold text-s info">With papers</span>
+                            {% if watch.has_papers %}
+                            <span class="font-light text-s"><i class="fa-solid fa-circle-check"></i></span>
+                            {% else %}
+                            <span class="font-light text-s"><i class="fa-regular fa-circle-xmark"></i></span>
+                            {% endif %}
+                        </div>
+                    </div>
                     <div class="flex flex-col items-center mt-2">
                         <p class="text-center text-xs">
                             <a href="{{ watch.ebay_link }}" target="_blank">
                                 <i class="fa-brands fa-ebay text-4xl"></i>
-                
+
                             </a>
                         </p>
                         <a href="{% url 'watches:submit_offer' watch.pk %}"
