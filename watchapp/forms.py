@@ -22,17 +22,17 @@ class SignupForm(UserCreationForm):
 
     username = forms.CharField(widget=forms.TextInput(attrs={
         'placeholder': 'Your Username',
-        'class': 'w-full py-4 px-6 rounded-xl'
+        'class': 'w-full py-4 px-6 rounded-xl font-semibold text-center info'
     }))
     email = forms.CharField(widget=forms.EmailInput(attrs={
         'placeholder': 'Your Email',
-        'class': 'w-full py-4 px-6 rounded-xl'
+        'class': 'w-full py-4 px-6 rounded-xl font-semibold text-center info'
     }))
     password1 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Your Password',
-        'class': 'w-full py-4 px-6 rounded-xl'
+        'class': 'w-full py-4 px-6 rounded-xl font-semibold text-center info'
     }))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'placeholder': 'Your Password again',
-        'class': 'w-full py-4 px-6 rounded-xl'
+        'class': 'w-full py-4 px-6 rounded-xl font-semibold text-center info'
     }))

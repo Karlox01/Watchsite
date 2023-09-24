@@ -25,6 +25,10 @@ class Item(models.Model):
     year = models.PositiveIntegerField(null=True, blank=True)
     has_box = models.BooleanField(default=False)
     has_papers = models.BooleanField(default=False)
+    water_resistance = models.CharField(max_length=100, blank=True, null=True)
+    case_size = models.CharField(max_length=20, blank=True, null=True)
+    case_material = models.CharField(max_length=50, blank=True, null=True)
+    movement = models.CharField(max_length=50, blank=True, null=True)
 
     def __str__(self):
         return self.name

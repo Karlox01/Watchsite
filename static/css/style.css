@@ -43,13 +43,28 @@ span {
 
 .info {
     font-family: 'Bitter', serif;
+    font: bold;
+    font-weight: 900;
 }
 
 .filter {
     font-family: 'Bitter', serif;
     color: white;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.filtero {
+    font-family: 'Bitter', serif;
+    color: black;
     font-size: 25px;
     font-weight: bold;
     padding: 5px;
     margin-top: 5px;
+}
+
+.specs {
+    font-family: Roboto;
 }

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.contrib.auth.models import User
@@ -21,6 +21,7 @@ def filtered_items(request):
     items = Item.objects.filter(is_sold=False)
 
     if category_id:
+        # Filter by category_id if provided
         items = items.filter(category_id=category_id)
 
     if query:
@@ -49,6 +50,39 @@ def filtered_items(request):
         'max_year': max_year,
     })
 
+
+
+
+
+def search_items(request):
+    # Get the search query from the URL parameter 'query'
+    query = request.GET.get('query', '')
+
+    # Get all categories for your filter sidebar
+    categories = Category.objects.all()
+
+    # Get all items that match the search query
+    items = Item.objects.filter(is_sold=False)  # Assuming you want to filter unsold items
+
+    if query:
+        # Apply a filter to the items based on the search query
+        items = items.filter(
+            Q(name__icontains=query) |  # Search by item name
+            Q(description__icontains=query)  # Search by item description
+        )
+
+    # You can add more filters here if needed (e.g., by category, price, year)
+
+    # Redirect back to the main items view after searching
+    return render(request, 'watches/items.html', {
+        'items': items,
+        'query': query,
+        'categories': categories,
+        'min_price': None,  # Set to None to reset any previous filters
+        'max_price': None,
+        'min_year': None,
+        'max_year': None,
+    })
 
 
 
@@ -84,6 +118,9 @@ def submit_offer(request, pk):
         return render(request, 'watches/thanks.html')
 
     return render(request, 'watches/submit_offer.html', {'item': item})
+
+
+
 
 
 
