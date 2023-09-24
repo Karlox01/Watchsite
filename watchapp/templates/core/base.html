@@ -32,7 +32,7 @@
             <span class="text-lg rounded-lg cursive text-white">Hello there {{ request.user.username }}</span>
             <a href="{% url 'conversation:inbox' %}"
                 class="px-6 py-3 rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">INBOX</a>
-            <a href="../../../watches/templates/watches/watches_by_category.html"
+            <a href="/"
                 class="px-6 py-3 text-lg  rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">DASHBOARD</a>
             <a href="{% url 'watchapp:logout' %}"
                 class="px-6 py-3 text-lg bg-red-500 text-white rounded-xl hover:bg-red-700 cursive">LOG OUT</a>

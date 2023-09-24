@@ -9,11 +9,13 @@ from .models import Category, Item, Offer
 from conversation.models import Conversation, ConversationMessage
 
 
-def items(request):
+def filtered_items(request):
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)
     min_price = request.GET.get('min_price')
     max_price = request.GET.get('max_price')
+    min_year = request.GET.get('min_year')
+    max_year = request.GET.get('max_year')
 
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
@@ -22,14 +24,19 @@ def items(request):
         items = items.filter(category_id=category_id)
 
     if query:
-        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query) | Q(year__icontains=query))
+        items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
-    # Apply price filter if provided
     if min_price:
         items = items.filter(price__gte=min_price)
 
     if max_price:
         items = items.filter(price__lte=max_price)
+
+    if min_year:
+        items = items.filter(year__gte=min_year)
+
+    if max_year:
+        items = items.filter(year__lte=max_year)
 
     return render(request, 'watches/items.html', {
         'items': items,
@@ -38,29 +45,12 @@ def items(request):
         'category_id': int(category_id),
         'min_price': min_price,
         'max_price': max_price,
+        'min_year': min_year,
+        'max_year': max_year,
     })
 
-# views.py
-def filtered_watches_by_price(request):
-    min_price = request.GET.get('min_price')
-    max_price = request.GET.get('max_price')
 
-    # Retrieve all categories to display in the filter
-    categories = Category.objects.all()
 
-    # Retrieve all items that match the price filter
-    items = Item.objects.filter(is_sold=False)
-
-    if min_price:
-        items = items.filter(price__gte=min_price)
-
-    if max_price:
-        items = items.filter(price__lte=max_price)
-
-    return render(request, 'watches/items.html', {
-        'items': items,
-        'categories': categories,  # Include categories in the context
-    })
 
 def detail(request, pk):
     item = get_object_or_404(Item, pk=pk)
@@ -97,21 +87,3 @@ def submit_offer(request, pk):
 
 
 
-def watches_by_category(request, category_name):
-    category = get_object_or_404(Category, name=category_name)
-    items = Item.objects.filter(category=category, is_sold=False)
-
-    query = request.GET.get('query', '')
-
-    if query:
-        items = items.filter(
-            Q(name__icontains=query) | Q(description__icontains=query) | Q(year__icontains=query)
-        )  # Include year in the search
-    
-    # You can reuse the 'items' template to display watches by category
-    return render(request, 'watches/items.html', {
-        'items': items,
-        'query': '',  # You can customize this as needed
-        'categories': Category.objects.all(),
-        'category_id': category.id,  # Pass the category id to identify the selected category
-    })

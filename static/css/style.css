@@ -29,10 +29,27 @@ span {
     font-size: 60px;
 }
 
+.brands {
+    padding: 12px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 20px;
+    color: white;
+
+}
+
 .image {
     margin: 0 auto;
 }
 
 .info {
     font-family: 'Bitter', serif;
+}
+
+.filter {
+    font-family: 'Bitter', serif;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
 }
