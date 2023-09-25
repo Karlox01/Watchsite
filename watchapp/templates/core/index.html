@@ -6,12 +6,13 @@
 {% block content %}
 <div class="mt-6 px-6 py-12 rounded-xl bg-gray-100">
     <h2 class="mb-12 text-center w-full stock"> Current stock </h2>
-    <div class="grid grid-cols-6 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
         {% for watch in items %}
-        <div>
+        <div class="mb-6">
             <a href="{% url 'watches:detail' watch.id %}">
                 <div>
-                    <img src="{{ watch.image.url }}" class="w-full h-auto rounded-lg shadow-md" alt="{{ watch.name }}">
+                    <img src="{{ watch.main_image.url }}" class="w-full h-auto rounded-lg shadow-md"
+                        alt="{{ watch.name }}">
                 </div>
 
                 <div class="p-6 rounded-xl mt-4">
@@ -46,11 +47,10 @@
                         <p class="text-center text-xs">
                             <a href="{{ watch.ebay_link }}" target="_blank">
                                 <i class="fa-brands fa-ebay text-4xl"></i>
-
                             </a>
                         </p>
                         <a href="{% url 'watches:submit_offer' watch.pk %}"
-                            class="mt-2 px-4 py-1 font-semibold bg-sky-600 text-white hover:bg-teal-700 rounded-xl cursive">Submit
+                            class="mt-2 px-4 py-1 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive">Submit
                             an Offer</a>
                     </div>
                 </div>

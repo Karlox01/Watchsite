@@ -15,8 +15,8 @@ class Item(models.Model):
     category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
+    main_image = models.ImageField(upload_to='item_images/', blank=True, null=True)
     price = models.FloatField()
-    image = models.ImageField(upload_to='item_images', blank=True, null=True)
     is_sold = models.BooleanField(default=False)
     created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -42,3 +42,13 @@ class Offer(models.Model):
 
     def __str__(self):
         return f'Offer of ${self.offer_amount} on {self.item.name}'
+
+
+
+class ItemImage(models.Model):
+    item = models.ForeignKey(Item, related_name='images', on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='item_images/')
+    # You can add more fields if needed, e.g., image description, position, etc.
+
+    def __str__(self):
+        return self.item.name + ' Image'

@@ -10,96 +10,101 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://kit.fontawesome.com/4b8e303bca.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <title>{% block title %} {% endblock %} | Base </title>
 </head>
 
-<body>
+<body class="bg-white">
 
-    <nav class="py-6 flex justify-between items-center border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-indigo-950 nav-bar">
-        <a href="/" class="flex items-center flex-grow"> <!-- Added 'flex', 'items-center', and 'flex-grow' classes here -->
-            <img src="https://i.ibb.co/Vjcpfct/cover.png" class="mr-8 h-15 w-20 sm:h-15 sm:w-40 rounded-xl"
-                alt="Your Project Logo" />
-                <p class="text-white text-sm mt-2 lg:mt-0 lg:mt-2 filter">We buy, sell, and trade pre-owned watches</p>
-        </a>
-       
-    
-        <div class="space-x-6">
+    <nav
+        class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
+        <div class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
+            <a href="/" class="flex items-center custom-logo cursive text-white text-5xl">
+                Watches By Karl
+            </a>
+            <div class="text-center sm:ml-4 filter mt-2 text-white text-sm">
+                We buy, sell, and trade pre-owned watches
+            </div>
+        </div>
+        <div class="mt-4 sm:mt-0 space-x-4 flex flex-wrap items-center justify-center">
             <a href="{% url 'watches:items' %}"
                 class="text-xl rounded-lg cursive text-white hover:text-teal-700">Browse</a>
-    
+
             {% if request.user.is_authenticated %}
             <span class="text-lg rounded-lg cursive text-white">Hello there {{ request.user.username }}</span>
-            <a href="{% url 'conversation:inbox' %}"
-                class="px-2 py-2  text-white cursive hover:text-teal-700">INBOX</a>
-            <a href="/"
-                class="px-2 py-2 text-lg text-white cursive hover:text-teal-700">DASHBOARD</a>
-            <a href="{% url 'watchapp:logout' %}"
-                class="px-2 py-2 text-lg text-white cursive hover:text-red-500">LOG OUT</a>
+            <a href="{% url 'conversation:inbox' %}" class="px-2 py-2 text-white cursive hover:text-teal-700">INBOX</a>
+            <a href="/" class="px-2 py-2 text-lg text-white cursive hover:text-teal-700">DASHBOARD</a>
+            <a href="{% url 'watchapp:logout' %}" class="px-2 py-2 text-lg text-white cursive hover:text-red-500">LOG
+                OUT</a>
             {% else %}
-    
+
             <a href="{% url 'watchapp:signup' %}"
-                class="px-6 py-3 text-lg  rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">Sign
+                class="px-4 py-2 text-lg rounded-lg bg-sky-600 text-white rounded-xl hover:bg-teal-700 cursive">Sign
                 up</a>
             <a href="{% url 'watchapp:login' %}"
-                class="px-6 py-3 text-lg bg-indigo-700 text-white rounded-xl hover:bg-teal-700 cursive">Sign
+                class="px-4 py-2 text-lg bg-indigo-700 text-white rounded-xl hover:bg-teal-700 cursive">Sign
                 in</a>
             {% endif %}
         </div>
     </nav>
-    
-    <div class="px-6 py-6">
+
+    <div class="px-4 sm:px-6 py-6">
         {% block content %}
 
         {% endblock %}
 
     </div>
 
-    <footer class="py-6 px-6 flex justify-between bg-yellow-200 bottom-0 border-gray-200 inset-x-0">
-        <div class="w-2/3 pr-10">
-            <h3 class="mb-5 font-semibold cursive text-center">About</h3>
-            <span class="text-lg text-bold info">
-                Our curated collection includes renowned brands such as Breitling, PANERAI, Cartier, Tudor, Tag Heuer, Rolex and many more.
-                Having been in watch business for over 5 years you can rest assured that every timepiece sold by us has been carefully inspected against theft & Authenticity
+    <footer class="py-6 px-4 sm:px-6 flex flex-wrap justify-between bg-gray-700 bottom-0 border-gray-200 inset-x-0">
+        <div class="w-full sm:w-2/3 pr-0 sm:pr-10">
+            <h3 class="mb-5 font-semibold cursive text-white text-center">About</h3>
+            <span class="text-lg text-bold info text-white">
+                Our curated collection includes renowned brands such as Breitling, PANERAI, Cartier, Tudor, Tag Heuer,
+                Rolex and many more.
+                Having been in watch business for over 5 years you can rest assured that every timepiece sold by us has
+                been carefully inspected against theft & Authenticity
                 <br>
                 We can be contacted at any time through eBay messages if you have any
                 questions, comments, or product requests. We will respond to you within 24 hours and do our best to help
                 you out! We encourage our customers to contact us with any questions or concerns! We'd like to be sure
                 you are completely satisfied with your purchase.
-
-
-
             </span>
         </div>
-        <div class="w-1/3">
-            <h3 class="mb-5 font-semibold cursive text-center">Menu</h3>
-
+        <div class="w-full sm:w-1/3 mt-4 sm:mt-0">
+            <h3 class="mb-5 font-semibold cursive text-center text-white">Menu</h3>
             <ul class="space-y-2">
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 cursive mr-4">Payment</a><span
-                        class="text-right text-sm">To be made within 2 hours of purchase. Otherwise, the sale
+                        class="text-right text-sm text-white">To be made within 2 hours of purchase. Otherwise, the sale
                         will be canceled.</span></li>
                 <li><a href="{% url 'watchapp:contact' %}"
                         class="text-lg text-teal-500 hover:text-teal-700 cursive">Contact</a></li>
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 cursive mr-4">Shipping</a><span
-                        class="text-right text-sm">Purchases over ebay are shipped strictly to UK, If
-                        international please contact me and i will arrange a quote, Payment to be made before the
-                        product is shipped however.</span></li>
+                        class="text-right text-sm text-white">Purchases over eBay are shipped strictly to the UK. If
+                        international, please contact me, and I will arrange a quote. Payment must be made before the
+                        product is shipped.</span></li>
                 <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 cursive mr-4">Terms and conditions &
-                        Disclaimer</a><span class="text-sm">I reserve the right to withdraw from the sale if
+                        Disclaimer</a><span class="text-sm text-white">I reserve the right to withdraw from the sale if
                         the purchaser holds less
                         than 10 positive eBay reviews.
                         I appreciate and welcome offers. However, there is an auto-reject option set in place for a
-                        reason.Please keep in mind watches are also advertised on Facebook Marketplace / Chrono24</span>
+                        reason. Please keep in mind watches are also advertised on Facebook Marketplace /
+                        Chrono24</span>
                 </li>
             </ul>
         </div>
     </footer>
+
     <script>
         // Get the current URL
         var currentURL = window.location.href;
-    
+
         // Check if the current URL contains "/watches/"
         if (currentURL.indexOf("/watches/") !== -1) {
             // Add a class to the navigation bar for the "Browse" page
@@ -108,6 +113,17 @@
             // Remove the class for other pages
             document.querySelector('.nav-bar').classList.remove('browse-page-nav');
         }
+        $(document).ready(function () {
+            $("#imageCarousel").owlCarousel({
+                items: 1, // Number of items to show at once (adjust as needed)
+                loop: true, // Enable loop
+                nav: true, // Enable navigation arrows
+                dots: false, // Disable pagination dots
+                navText: ["<i class='fa-solid fa-chevron-left text-left'></i>",
+                    "<i class='fa-solid fa-chevron-right'></i>"
+                ] // Custom navigation text
+            });
+        });
     </script>
 
 </body>

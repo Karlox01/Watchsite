@@ -77,9 +77,128 @@ span {
     object-position: 80% 50%;
 }
 
+/* Center the first <a> element in the navigation bar */
+.nav-bar.browse-page-nav > a:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* Center the logo text */
+.nav-bar.browse-page-nav > a:first-child .custom-logo {
+    text-align: center;
+}
+
+/* Center the tagline text */
+.nav-bar.browse-page-nav > a:first-child p {
+    text-align: center;
+}
+
+/* Adjust text size as needed */
+.nav-bar.browse-page-nav > a:first-child .custom-logo {
+    font-size: 2rem; /* Adjust the size as needed */
+}
+
 
 .browse-page-nav a {
     /* Your styles for links on the "Browse" page */
     justify-content: center;
 
 }
+
+/* Custom styles for Owl Carousel navigation buttons */
+.owl-prev,
+.owl-next {
+  background-color: #333; /* Background color */
+  color: #fff; /* Text color */
+  font-size: 30px !important; /* Font size */
+  padding: 10px 20px; /* Padding */
+  border-radius: 5px; /* Border radius */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* For desktop view (1281px and above) */
+@media (min-width: 1281px) {
+    .owl-prev,
+    .owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px; /* Adjust the chevron width as needed */
+        height: 40px; /* Adjust the chevron height as needed */
+        background-color: rgba(255, 255, 255, 0.8); /* Add a background color for visibility */
+        border-radius: 50%; /* Make the chevron circular */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px; /* Adjust the font size as needed */
+        cursor: pointer;
+        z-index: 1000;
+        color: white;
+    }
+
+    .owl-prev {
+        left: 10px; /* Adjust the distance from the left edge of the screen */
+    }
+
+    .owl-next {
+        right: 250px; /* Adjust the distance from the right edge of the screen */
+    }
+}
+
+
+
+
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .owl-prev,
+    .owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        padding: 0 10px; /* Adjust the padding as needed */
+    }
+
+    .owl-prev {
+        left: 10px; /* Adjust the distance from the left edge of the screen */
+    }
+
+    .owl-next {
+        right: 10px; /* Adjust the distance from the right edge of the screen */
+    }
+}
+
+
+@media (max-width: 1023px) {
+    .owl-prev,
+    .owl-next {
+        padding: 0 5px; /* Adjust padding for tablet view */
+    }
+    .owl-prev {
+        left: 5px; /* Adjust the distance from the left edge for tablet view */
+    }
+    .owl-next {
+        right: 5px; /* Adjust the distance from the right edge for tablet view */
+    }
+}
+
+/* For mobile view (up to 767px) */
+@media (max-width: 767px) {
+    .owl-prev,
+    .owl-next {
+        padding: 0 3px; /* Adjust padding for mobile view */
+    }
+    .owl-prev {
+        left: 3px; /* Adjust the distance from the left edge for mobile view */
+    }
+    .owl-next {
+        right: 3px; /* Adjust the distance from the right edge for mobile view */
+    }
+}
+
+
+

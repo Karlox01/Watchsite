@@ -9,7 +9,7 @@ from .models import Category, Item, Offer
 from conversation.models import Conversation, ConversationMessage
 
 
-def filtered_items(request):
+def filtered_items(request, category_name=None):
     query = request.GET.get('query', '')
     category_id = request.GET.get('category', 0)
     min_price = request.GET.get('min_price')
@@ -20,6 +20,10 @@ def filtered_items(request):
     categories = Category.objects.all()
     items = Item.objects.filter(is_sold=False)
 
+    if category_name:
+        # Filter by category name if provided
+        items = items.filter(category__name=category_name)
+
     if category_id:
         # Filter by category_id if provided
         items = items.filter(category_id=category_id)
@@ -27,16 +31,20 @@ def filtered_items(request):
     if query:
         items = items.filter(Q(name__icontains=query) | Q(description__icontains=query))
 
-    if min_price:
+    # Apply price filter if both min_price and max_price are provided
+    if min_price and max_price:
+        items = items.filter(price__range=(min_price, max_price))
+    elif min_price:
         items = items.filter(price__gte=min_price)
-
-    if max_price:
+    elif max_price:
         items = items.filter(price__lte=max_price)
 
-    if min_year:
+    # Apply year filter if both min_year and max_year are provided
+    if min_year and max_year:
+        items = items.filter(year__range=(min_year, max_year))
+    elif min_year:
         items = items.filter(year__gte=min_year)
-
-    if max_year:
+    elif max_year:
         items = items.filter(year__lte=max_year)
 
     return render(request, 'watches/items.html', {
@@ -48,7 +56,11 @@ def filtered_items(request):
         'max_price': max_price,
         'min_year': min_year,
         'max_year': max_year,
+        'category_name': category_name,  # Pass the category name to the template
     })
+
+
+
 
 
 
@@ -115,7 +127,7 @@ def submit_offer(request, pk):
             is_offer=True  # Set this as an offer message
         )
 
-        return render(request, 'watches/thanks.html')
+        return render(request, 'watches/thanks.html', {'item': item})
 
     return render(request, 'watches/submit_offer.html', {'item': item})
 
