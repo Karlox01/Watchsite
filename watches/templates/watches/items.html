@@ -3,13 +3,19 @@
 
 {% block title %} Watches By Filter {% endblock %}
 
+
+
+
 {% block content %}
+<div class="col-span-1 w-full">
+    <img src="https://wallpapercave.com/wp/wp10728814.jpg" alt="Wide Image" class="imageo">
+</div>
 <div class="py-6 grid grid-cols-4 gap-4 bg-gray-100">
-    <div class="col-span-1 bg-indigo-950 p-4 rounded-xl">
+    <div class="col-span-1 bg-gray-200 p-4 rounded-xl">
         <hr class="my-4">
         <div class="mb-4">
             <div class="text-center">
-                <p class="cursive text-white">CATEGORIES</p>
+                <p class="filter text-gray-900 font-semibold text-xl">CATEGORIES</p>
                 <ul>
                     <li class="py-2 px-2 rounded-md brands">
                         <a href="{% url 'watches:items' %}?query={{ query }}">All</a>
@@ -26,8 +32,8 @@
 
         <hr class="my-4">
 
-        <div class="col-span-1 bg-indigo-950 p-4 rounded-lg">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center filter">FILTER BY PRICE</h2>
+        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
+            <h2 class="text-lg font-semibold text-gray-900  mb-4 text-center filter">FILTER BY PRICE</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_price' %}">
                     <label for="min_price" class="text-sm text-gray-700 dark:text-gray-300"></label>
@@ -47,8 +53,8 @@
             </div>
         </div>
 
-        <div class="col-span-1 bg-indigo-950 p-4 rounded-lg">
-            <h2 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 text-center filter">FILTER BY YEAR</h2>
+        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center filter">FILTER BY YEAR</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_year' %}">
                     <label for="min_year" class="text-sm text-gray-700 dark:text-gray-300"></label>
