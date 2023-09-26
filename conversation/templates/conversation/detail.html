@@ -5,17 +5,21 @@
 {% block title %} Conversation {% endblock %}
 
 {% block content %}
-<h1 class="mb-6 text-3xl"> Conversation </h1>
+<h1 class="text-6xl cursive text-center mb-5"> Conversation </h1>
 
 <div class="space-y-6">
     {% for message in conversation.messages.all %}
     <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100 {% else %}bg-gray-100 rounded-xl {% endif %}">
         <div>
-            <p class="mb-4">
-                <strong>{{ message.created_by.username }}</strong> Sent a message On {{ message.created_at }}
+            <p class="mb-4 text-center">
+                <strong class="cursive text-3xl mr-3">{{ message.created_by.username }}</strong> <span class="text-xs"> Has sent you a message on : {{ message.created_at }} </span>
                 {% if message.is_offer %}
-                <p class="offer-message"> <!-- Add the 'offer-message' class here -->
-                    <strong>Offer:</strong> <span class="offer-text">{{ message.content }}</span> <!-- Add the 'offer-text' class here -->
+                <p class="offer-message">
+                    <strong class="text-2xl mr-2 filter">I have a price proposal for: {{ conversation.item.name }}</strong>
+                    <hr>
+                    <div class="text-center"> <!-- Wrap the content in a block-level container -->
+                        <span class="filter text-2xl">{{ message.content }}</span>
+                    </div>
                 </p>
                 {% else %}
                 <p>{{ message.content }}</p>
@@ -26,13 +30,14 @@
     {% endfor %}
 </div>
 
-<form method="post" action=".">
+<form method="post" action="." class="mt-10">
     {% csrf_token %}
 
-    {{ form.as_p }}
+    {{ form.content }}
 
-    <button class="py-4 px-8 text-lg bg-teal-500 hover:bg-teal-700 rounded-xl text-white">Send</button>
+
+    <button class="mt-2 px-4 py-1 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive mb-5">Send</button>
 </form>
 
-<a href="{% url 'conversation:inbox' %}">Return to Inbox</a>
+<a href="{% url 'conversation:inbox' %}" class="mt-2 px-4 py-2 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive">Return to Inbox</a>
 {% endblock %}

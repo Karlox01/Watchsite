@@ -85,3 +85,14 @@ def detail(request, pk):
         'messages': messages,
     })
 
+@login_required
+def delete_conversation(request, pk):
+    conversation = get_object_or_404(Conversation, pk=pk)
+    
+    # Check if the current user is a member of the conversation
+    if request.user in conversation.members.all():
+        # Delete the conversation
+        conversation.delete()
+    
+    return redirect('conversation:inbox')
+

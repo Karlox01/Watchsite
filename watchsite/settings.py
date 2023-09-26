@@ -28,8 +28,8 @@ SECRET_KEY = 'django-insecure--tioj)g!k6y2k5c)2d(qj9b7t98)zr42324o=20t(3lkr#e&ge
 DEBUG = True
 
 
-CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
-ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io']
 
 
 LOGIN_URL = '/login/'

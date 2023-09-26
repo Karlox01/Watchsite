@@ -25,7 +25,8 @@
 
     <nav
         class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
-        <div class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
+        <div
+            class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
             <a href="/" class="flex items-center custom-logo cursive text-white text-5xl">
                 Watches By Karl
             </a>
@@ -62,7 +63,8 @@
 
     </div>
 
-    <footer class="py-6 px-4 sm:px-6 flex flex-wrap justify-between bg-gray-700 bottom-0 border-gray-200 inset-x-0">
+    <footer
+        class="py-6 px-4 sm:px-6 flex flex-wrap justify-between bg-gray-700 bottom-0 border-gray-200 inset-x-0 mt-20 pt-20">
         <div class="w-full sm:w-2/3 pr-0 sm:pr-10">
             <h3 class="mb-5 font-semibold cursive text-white text-center">About</h3>
             <span class="text-lg text-bold info text-white">
@@ -124,6 +126,11 @@
                 ] // Custom navigation text
             });
         });
+
+        function validateNumber(input) {
+            // Remove any non-numeric characters using a regular expression
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }
     </script>
 
 </body>

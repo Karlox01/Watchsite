@@ -129,6 +129,6 @@ The website will be deployed to Heroku (TO DO ). Follow these steps to view it:
 **Code**: 
  Fonts were chosen from Google Fonts, and color selection was inspired by tailwind projects.
 
-**Copilot**: Special thanks to GPT-3.5 Assistant (Alex as he referred to himself! ) for providing valuable assistance throughout the project, Including testing of my code for potential erros.
+**Copilot**: Special thanks to GPT-3.5 Assistant - Alex (Hes named himself Alex!!) for providing valuable assistance throughout the project, Including testing of my code for potential erros.
 
 

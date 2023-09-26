@@ -5,30 +5,32 @@
 {% block title %}Submit an Offer for {{ item.name }}{% endblock %}
 
 {% block content %}
-<section class="bg-gray-800">
-  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="#" class="flex items-center mb-6">
-          <img class="h-20 mr-2 w-full" src="https://i.ibb.co/Vjcpfct/cover.png" alt="logo">
-      </a>
-      <div class="w-full bg-white md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 ">
-              <h1 class="filter text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                  Submit an Offer for {{ item.name }}
-              </h1>
-              <form method="post" action=".">
-                  {% csrf_token %}
-                  <!-- Offer amount input -->
-                  <div>
-                      <label for="offer_amount" class="filter text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Your Offer Amount (£)</label>
-                      <input type="text" name="offer_amount" id="offer_amount" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
-                  </div>
-                  <button type="submit" class="w-full filter font-semibold text-sm text-white hover:underline">Submit Offer</button>
-              </form>
-              <!-- Container for the small photo of the watch with a fixed height -->
-              <div class="max-w-md mx-auto mt-4 h-66">
-                  <img src="{{ item.main_image.url }}" class="rounded-xl w-full h-full">
-              </div>
-          </div>
-      </div>
-  </div>
-</section>
+<section class="bg-gray-600">
+    <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <a href="#" class="flex items-center mb-6">
+            <img class="h-20 mr-2 w-full" src="https://i.ibb.co/Vjcpfct/cover.png" alt="logo">
+        </a>
+        <div class="w-full bg-white md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-600 ">
+            <div class="text-center mb-2">
+                <h1 class="filter text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl dark:text-white">
+                    Submit an Offer for {{ item.name }}
+                </h1>
+            </div>
+            <!-- Container for the small photo of the watch with a fixed height -->
+            <div class="max-w-md mx-auto mt-4 h-auto">
+                <img src="{{ item.main_image.url }}" class="rounded-xl w-64 h-full mx-auto">
+            </div>
+            <form method="post" action="." class="mt-4">
+                {% csrf_token %}
+                <!-- Offer amount input -->
+                <div>
+                    <label for="offer_amount" class="filter text-center block mb-2 text-sm font-semibold text-gray-600 dark:text-white">Your Offer Amount (£)</label>
+                    <input type="text" name="offer_amount" id="offer_amount" class="bg-gray-600 border border-gray-300 text-gray-200 sm:text-sm rounded-lg block w-full p-2.5" required="" oninput="validateNumber(this)">
+                </div>
+                <button type="submit" class="w-full filter font-semibold text-sm text-white hover:underline mt-2 bg-indigo-950 text-white hover:bg-gray-600">Submit Offer</button>
+            </form>
+        </div>
+    </div>
+  </section>
+  
 {% endblock %}

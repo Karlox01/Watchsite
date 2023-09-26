@@ -122,7 +122,7 @@ def submit_offer(request, pk):
         # Create the offer message within the conversation
         offer_message = ConversationMessage.objects.create(
             conversation=conversation,
-            content=f"New offer for '{item.name}' received: £{offer_amount}.",
+            content = f"I would like to offer : £{offer_amount}.",
             created_by=request.user,
             is_offer=True  # Set this as an offer message
         )
