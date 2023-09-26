@@ -1,108 +1,134 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Watches By Karl
 
-Welcome Karlox01,
+![Watches By Karl Logo](https://your-logo-url.com)
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+**Description:** Watches By Karl is a Django-based web application for buying, selling, and trading pre-owned watches. Our platform caters to watch enthusiasts, offering a curated collection of high-quality pre-owned watches, including renowned brands like Breitling, PANERAI, Cartier, Tudor, Tag Heuer, and Rolex. Whether you're looking to purchase, sell, or trade watches, Watches By Karl is your trusted destination.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Contents
 
-## Gitpod Reminders
+- [Introduction](#introduction)
+- [Features](#features)
+- [Website Intentions](#website-intentions)
+- [Creation Process](#creation-process)
+  - [Strategy](#strategy)
+  - [Structure](#structure)
+  - [Design](#design)
+  - [Surface](#surface)
+- [Features](#features)
+  - [Homepage](#homepage)
+  - [Browse Watches](#browse-watches)
+  - [Submit Offers](#submit-offers)
+  - [Messaging System](#messaging-system)
+  - [User Dashboard](#user-dashboard)
+- [Testing](#testing)
+  - [HTML Validator](#html-validator)
+  - [CSS Validator](#css-validator)
+  - [Lighthouse](#lighthouse)
+  - [Manual Testing](#manual-testing)
+  - [Issues and Their Solutions](#issues-and-their-solutions)
+- [Deployment](#deployment)
+- [Credits](#credits)
+  - [Content](#content)
+  - [Media](#media)
+  - [Code](#code)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Introduction
 
-`python3 -m http.server`
+Watches By Karl is your go-to destination for high-quality pre-owned watches. Whether you're an avid collector, a first-time buyer, or looking to sell your watch, our platform caters to all your watch-related needs. Explore our collection, submit offers, and engage with other watch enthusiasts through our messaging system.
 
-A blue button should appear to click: _Make Public_,
+## Features
 
-Another blue button should appear to click: _Open Browser_.
+- **Browse a Curated Collection**: Explore a diverse and carefully curated collection of pre-owned watches.
+- **Submit Offers**: Submit offers for your favorite timepieces, making it easy to negotiate and purchase.
+- **Messaging System**: Engage in watch-related discussions and negotiations through our built-in messaging system.
+- **User Dashboard**: Access a user-friendly dashboard for a seamless experience, where you can manage your offers and watchlist.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## Website Intentions
 
-A blue button should appear to click: _Make Public_,
+**For the User:**
 
-Another blue button should appear to click: _Open Browser_.
+- Quickly find out the range and prices of available watches.
+- Submit offers and communicate with sellers.
+- Explore and discover new watches.
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+**For the Site Developer:**
 
-To log into the Heroku toolbelt CLI:
+- Introduce the company and its services.
+- Provide up-to-date information about available watches.
+- Attract new customers and watch enthusiasts.
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Creation Process
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+### Strategy
 
-------
+Watches By Karl operates on a "business-to-consumer" (B2C) model, aiming to connect watch enthusiasts with pre-owned watches. The website's main purpose is to provide information about our services and create a platform for buying, selling, and trading watches.
 
-## Release History
+### Structure
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+The website is structured to provide a user-friendly experience:
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+- **Homepage**: Features a captivating visual representation and slogan.
+- **Browse Watches**: Displays an overview of available pre-owned watches, prices, and options.
+- **Submit Offers**: Offers a user-friendly form to submit offers and request callbacks.
+- **Messaging System**: Facilitates communication between users.
+- **User Dashboard**: Provides a dashboard for users to manage their offers and watchlist.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Design
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+I have carefully designed the website for a visually appealing experience.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Surface
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+- **Fonts**: We use Google Fonts to ensure readability and aesthetics.
+- **Color Scheme**: Our color scheme incorporates various shades to enhance visual appeal and readability.
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Features
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Homepage
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+- **Main Screen**: Features a captivating image and slogan.
+  
+### Browse Watches
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+- **Watch Selection**: Showcases detailed information about pre-owned watches.
+  
+### Submit Offers
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+- **User-Friendly Form**: Provides a form to submit offers and request callbacks.
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Messaging System
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+- **Communication**: Facilitates discussions between users.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+### User Dashboard
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+- **Management**: Allows users to manage their offers and watchlist.
 
-------
+## Testing
 
-## FAQ about the uptime script
+- **HTML Validator**: Ensured HTML code passes validation.
+- **CSS Validator**: Ensured CSS code passes validation.
+- **Lighthouse**: Conducted performance testing for efficient loading.
+- **Manual Testing**: Tested on various browsers and devices for optimal responsiveness.
 
-**Why have you added this script?**
+## Deployment
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+The website will be deployed to Heroku (TO DO ). Follow these steps to view it:
 
-**How will this affect me?**
+1. 
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
 
-**So….?**
+## Credits
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+**Content**: Our content is inspired by the world of horology and the passion of watch enthusiasts.
 
-**Can I opt out?**
+**Media**: 
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+**Code**: 
+ Fonts were chosen from Google Fonts, and color selection was inspired by tailwind projects.
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+**Copilot**: Special thanks to GPT-3.5 Assistant (Alex as he referred to himself! ) for providing valuable assistance throughout the project, Including testing of my code for potential erros.
 
-**Anything more?**
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
