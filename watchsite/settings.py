@@ -31,8 +31,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'W&Xbk^`BkvDo;1S')
 DEBUG = True
 
 
-CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io','https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io','https://watches-by-karl-c82b1bd8619b.herokuapp.com/']
-ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io','https://watches-by-karl-c82b1bd8619b.herokuapp.com/']
+CSRF_TRUSTED_ORIGINS=['https://watches-by-karl-c82b1bd8619b.herokuapp.com/']
+ALLOWED_HOSTS = ['https://watches-by-karl-c82b1bd8619b.herokuapp.com/', 'localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
 
 
 LOGIN_URL = '/login/'
