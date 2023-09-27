@@ -11,25 +11,28 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from decouple import config
 
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure--tioj)g!k6y2k5c)2d(qj9b7t98)zr42324o=20t(3lkr#e&ge'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'W&Xbk^`BkvDo;1S')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 
-CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io']
-ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io']
+CSRF_TRUSTED_ORIGINS=['https://8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io','https://8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
+ALLOWED_HOSTS = ['localhost', '8000-karlox01-watchsite-8le5s951j2c.ws-eu105.gitpod.io', '8000-karlox01-watchsite-8le5s951j2c.ws-eu104.gitpod.io']
 
 
 LOGIN_URL = '/login/'
@@ -86,11 +89,15 @@ WSGI_APPLICATION = 'watchsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 
@@ -134,7 +141,18 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'df0ptccvy',
+    'API_KEY': '131336277751982',
+    'API_SECRET': 'BQwBtiYria18MB4Wf8_cohyUF2c',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
