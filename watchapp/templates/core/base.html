@@ -36,7 +36,7 @@
             {% if request.user.is_authenticated %}
             <span class="text-lg rounded-lg cursive text-white">Hello there {{ request.user.username }}</span>
             <a href="{% url 'watches:items' %}"
-                class="text-xl rounded-lg cursive text-white hover:text-teal-700">Browse</a>
+                class="px-2 py-2 text-white cursive hover:text-teal-700">BROWSE</a>
             <a href="{% url 'conversation:inbox' %}" class="px-2 py-2 text-white cursive hover:text-teal-700">INBOX</a>
             <a href="/" class="px-2 py-2 text-lg text-white cursive hover:text-teal-700">DASHBOARD</a>
             <a href="{% url 'watchapp:logout' %}" class="px-2 py-2 text-lg text-white cursive hover:text-red-500">LOG
