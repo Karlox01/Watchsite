@@ -79,14 +79,13 @@ span {
     text-align: center;
 }
 
-/* Center the tagline text */
+
 .nav-bar.browse-page-nav > a:first-child p {
     text-align: center;
 }
 
-/* Adjust text size as needed */
 .nav-bar.browse-page-nav > a:first-child .custom-logo {
-    font-size: 2rem; /* Adjust the size as needed */
+    font-size: 2rem; 
 }
 
 
@@ -188,6 +187,20 @@ span {
         right: 3px; /* Adjust the distance from the right edge for mobile view */
     }
 }
+
+
+@media (min-width: 768px) {
+    /* Adjust the screen width value as needed */
+    .nav-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-bar .custom-logo {
+        margin-bottom: 10px; /* Adjust the margin as needed */
+    }
+}
+
 
 
 

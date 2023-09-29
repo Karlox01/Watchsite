@@ -56,7 +56,7 @@ def filtered_items(request, category_name=None):
         'max_price': max_price,
         'min_year': min_year,
         'max_year': max_year,
-        'category_name': category_name,  # Pass the category name to the template
+        'category_name': category_name, 
     })
 
 
@@ -67,30 +67,25 @@ def filtered_items(request, category_name=None):
 
 
 def search_items(request):
-    # Get the search query from the URL parameter 'query'
     query = request.GET.get('query', '')
 
-    # Get all categories for your filter sidebar
     categories = Category.objects.all()
-
-    # Get all items that match the search query
-    items = Item.objects.filter(is_sold=False)  # Assuming you want to filter unsold items
+    items = Item.objects.filter(is_sold=False)  
 
     if query:
-        # Apply a filter to the items based on the search query
         items = items.filter(
-            Q(name__icontains=query) |  # Search by item name
-            Q(description__icontains=query)  # Search by item description
+            Q(name__icontains=query) |  # item name
+            Q(description__icontains=query)  # item description
         )
 
-    # You can add more filters here if needed (e.g., by category, price, year)
+    
 
     # Redirect back to the main items view after searching
     return render(request, 'watches/items.html', {
         'items': items,
         'query': query,
         'categories': categories,
-        'min_price': None,  # Set to None to reset any previous filters
+        'min_price': None,  
         'max_price': None,
         'min_year': None,
         'max_year': None,
