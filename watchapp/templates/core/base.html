@@ -108,31 +108,31 @@
     </footer>
 
     <script>
-        // Get the current URL
+        
         var currentURL = window.location.href;
 
-        // Check if the current URL contains "/watches/"
+        
         if (currentURL.indexOf("/watches/") !== -1) {
-            // Add a class to the navigation bar for the "Browse" page
+            
             document.querySelector('.nav-bar').classList.add('browse-page-nav');
         } else {
-            // Remove the class for other pages
+            
             document.querySelector('.nav-bar').classList.remove('browse-page-nav');
         }
         $(document).ready(function () {
             $("#imageCarousel").owlCarousel({
-                items: 1, // Number of items to show at once (adjust as needed)
-                loop: true, // Enable loop
-                nav: true, // Enable navigation arrows
-                dots: false, // Disable pagination dots
+                items: 1, 
+                loop: true, 
+                nav: true, 
+                dots: false, 
                 navText: ["<i class='fa-solid fa-chevron-left text-left'></i>",
                     "<i class='fa-solid fa-chevron-right'></i>"
-                ] // Custom navigation text
+                ] 
             });
         });
 
         function validateNumber(input) {
-            // Remove any non-numeric characters using a regular expression
+            
             input.value = input.value.replace(/[^0-9]/g, '');
         }
     </script>
