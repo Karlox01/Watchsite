@@ -25,13 +25,12 @@
 
     <nav class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
         <div class="py-6 flex flex-col justify-between items-center sm:flex-row border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
-            <a href="/" class="flex items-center custom-logo cursive text-white text-5xl">
+            <a href="/" class="flex items-center cursive text-white text-5xl">
                 Watches By Karl
-                <div class="text-center sm:ml-4 filter mt-2 text-white text-sm">
-                    We buy, sell, and trade pre-owned watches
-                </div>
             </a>
-            
+            <div class="text-center sm:ml-4 filter mt-2 text-white text-sm">
+                We buy, sell, and trade pre-owned watches
+            </div>
         </div>
         <div class="mt-4 sm:mt-0 space-x-4 flex flex-wrap items-center justify-center">
             {% if request.user.is_authenticated %}
