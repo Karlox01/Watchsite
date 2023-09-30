@@ -29,7 +29,7 @@
             Watches By Karl
         </a>
         </div>
-        <div class="mt-4 sm:mt-0 space-x-4 flex flex-wrap items-center justify-center">
+        <div class="mt-4 ml-5 sm:mt-0 space-x-4 flex flex-wrap items-center justify-center">
             {% if request.user.is_authenticated %}
             <span class="text-lg rounded-lg main-header-cursive text-white">Hello there {{ request.user.username }}</span>
             <a href="{% url 'watches:items' %}"
