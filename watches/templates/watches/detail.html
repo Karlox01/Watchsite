@@ -6,7 +6,7 @@
 {% block content %}
 <div class="container mx-auto p-4">
     <!-- Watch title -->
-    <h1 class="text-5xl font-semibold text-center p-10 info">{{ item.name }}</h1>
+    <h1 class="text-5xl font-semibold text-center p-10 bitter-font-bold">{{ item.name }}</h1>
 
     <div class="flex flex-col-reverse md:flex-row items-center">
         <!-- Owl Carousel for additional images -->
@@ -28,62 +28,62 @@
                 {% if item.description %}
                 <div class="text-gray-800 mb-6">
                     <i class="fa-regular fa-copy mb-4 mr-2 text-2xl"></i>
-                    <strong class="specs text-2xl">Description:</strong><br>
-                    <span class="cursiv font-semibold">{{ item.description }}</span>
+                    <strong class="roboto-font text-2xl">Description:</strong><br>
+                    <span class="login-cursive font-semibold">{{ item.description }}</span>
                 </div>
                 {% endif %}
                 <p class="text-gray-800 mb-6">
-                    <i class="fa-solid fa-address-book mb-4 mr-2 text-2xl"></i> <strong class="specs text-2xl">Contact
+                    <i class="fa-solid fa-address-book mb-4 mr-2 text-2xl"></i> <strong class="roboto-font text-2xl">Contact
                         :</strong><br>
-                    <span class="cursiv text-2xl font-semibold inline-block">{{ item.created_by.username }} @
+                    <span class="login-cursive text-2xl font-semibold inline-block">{{ item.created_by.username }} @
                         Orlandinikarlo@gmail.com</span>
                     <a href="{{ item.ebay_link }}" target="_blank">
                         <i class="fa-brands fa-ebay text-4xl inline-block text-blue-400"></i>
                     </a>
                 </p>
                 <p class="text-gray-800 mb-6">
-                    <i class="fa-solid fa-tags text-2xl mb-4 mr-2"></i> <strong class="specs text-2xl">Price :</strong><br>
-                    <span class="m-4 cursiv text-2xl font-semibold">{{ item.price|intcomma }} £</span>
+                    <i class="fa-solid fa-tags text-2xl mb-4 mr-2"></i> <strong class="roboto-font text-2xl">Price :</strong><br>
+                    <span class="m-4 login-cursive text-2xl font-semibold">{{ item.price|intcomma }} £</span>
                 </p>
                 <div class="flex flex-col md:flex-row">
                     <a href="{% url 'watches:submit_offer' item.pk %}"
-                       class="mt-4 md:mt-0 md:mr-4 px-4 py-2 text-lg font-semibold bg-red-800 text-white hover:bg-red-900 rounded specs">Submit an offer</a>
+                       class="mt-4 md:mt-0 md:mr-4 px-4 py-2 text-lg font-semibold bg-red-800 text-white hover:bg-red-900 rounded roboto-font">Submit an offer</a>
                     <a href="{% url 'conversation:new' item.id %}"
-                       class="mt-4 md:mt-0 px-4 py-2 text-lg font-semibold bg-black text-white hover:bg-black rounded specs">Message seller</a>
+                       class="mt-4 md:mt-0 px-4 py-2 text-lg font-semibold bg-black text-white hover:bg-black rounded roboto-font">Message seller</a>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="p-8 rounded-xl mt-8 bg-gray-200">
-        <h2 class="mb-8 font-semibold info text-3xl text-center p-8"><i class="fa-solid fa-gears mr-4"></i>
+        <h2 class="mb-8 font-semibold bitter-font-bold text-3xl text-center p-8"><i class="fa-solid fa-gears mr-4"></i>
             Specifications</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 specs font-bold">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 roboto-font font-bold">
             <div class="mb-4">
-                <i class="fa-solid fa-box mr-5"></i><strong class="info font-bold">Box: </strong>
+                <i class="fa-solid fa-box mr-5"></i><strong class="bitter-font-bold font-bold">Box: </strong>
                 {% if item.has_box %} Yes {% else %} No {% endif %}
             </div>
             <div class="mb-4">
-                <i class="fa-regular fa-paste mr-5"></i><strong class="info font-bold">Papers:</strong>
+                <i class="fa-regular fa-paste mr-5"></i><strong class="bitter-font-bold font-bold">Papers:</strong>
                 {% if item.has_papers %} Yes {% else %} No {% endif %}
             </div>
             <div class="mb-4">
-                <i class="fa-solid fa-calendar-days mr-5"></i><strong class="info font-bold">Year:</strong>
+                <i class="fa-solid fa-calendar-days mr-5"></i><strong class="bitter-font-bold font-bold">Year:</strong>
                 {{ item.year }}
             </div>
             <div class="mb-4">
-                <i class="fa-solid fa-water-ladder mr-5"></i> <strong class="info font-bold">Water Resistance:</strong> {{ item.water_resistance }}
+                <i class="fa-solid fa-water-ladder mr-5"></i> <strong class="bitter-font-bold font-bold">Water Resistance:</strong> {{ item.water_resistance }}
             </div>
             <div class="mb-4">
-                <i class="fa-solid fa-ruler mr-5"></i><strong class="info font-bold">Case Size:</strong>
+                <i class="fa-solid fa-ruler mr-5"></i><strong class="bitter-font-bold font-bold">Case Size:</strong>
                 {{ item.case_size }}
             </div>
             <div class="mb-4">
-                <i class="fa-solid fa-recycle mr-5"></i> <strong class="info font-bold">Case Material:</strong>
+                <i class="fa-solid fa-recycle mr-5"></i> <strong class="bitter-font-bold font-bold">Case Material:</strong>
                 {{ item.case_material }}
             </div>
             <div class="mb-4">
-                <i class="fa-regular fa-clock mr-5"></i> <strong class="info font-bold">Movement:</strong>
+                <i class="fa-regular fa-clock mr-5"></i> <strong class="bitter-font-bold font-bold">Movement:</strong>
                 {{ item.movement }}
             </div>
         </div>
@@ -91,7 +91,7 @@
 </div>
 
 <div class="mt-10 px-4 py-12 bg-gray-100">
-    <h2 class="mb-8 text-4xl text-center uppercase w-full specs font-bold">Related Items</h2>
+    <h2 class="mb-8 text-4xl text-center uppercase w-full roboto-font font-bold">Related Items</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {% for watch in related_items %}
         <div>
@@ -102,13 +102,13 @@
                         <h2 class="text-lg uppercase text-center span">
                             {{ watch.name }}
                         </h2>
-                        <p class="text-center font-semibold info mt-4"> Price : {{ watch.price|intcomma }} <i
+                        <p class="text-center font-semibold bitter-font-bold mt-4"> Price : {{ watch.price|intcomma }} <i
                                 class="fa-solid fa-sterling-sign"></i></p>
-                        <p class="text-center mt-1 font-semibold info"> Year : <span
-                                class="text-center info">{{ watch.year }} </span></p>
+                        <p class="text-center mt-1 font-semibold bitter-font-bold"> Year : <span
+                                class="text-center bitter-font-bold">{{ watch.year }} </span></p>
                         <div class="flex justify-center mt-2">
                             <div class="text-center mr-4">
-                                <span class="font-semibold text-s info">With box</span>
+                                <span class="font-semibold text-s bitter-font-bold">With box</span>
                                 {% if watch.has_box %}
                                 <span class="font-light text-s"><i class="fa-solid fa-circle-check"></i></span>
                                 {% else %}
@@ -118,7 +118,7 @@
 
                             <!-- Check if has_papers is True and display the icon accordingly -->
                             <div class="text-center">
-                                <span class="font-semibold text-s info">With papers</span>
+                                <span class="font-semibold text-s bitter-font-bold">With papers</span>
                                 {% if watch.has_papers %}
                                 <span class="font-light text-s"><i class="fa-solid fa-circle-check"></i></span>
                                 {% else %}

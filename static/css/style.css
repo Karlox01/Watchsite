@@ -1,24 +1,24 @@
-.cursive {
+/* ------------------------- FONTS ---------------------------- */
+
+/* ------------------ Cursive fonts --------------------- */
+
+.main-header-cursive {
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
     font-weight: bold;
 }
 
-.cursiv {
+.login-cursive {
     font-family: 'Dancing Script', cursive;
 }
 
-span {
-    font-family: Roboto, san-serif;
-}
-
-.stock {
+.cursive-padding-size {
     padding: 20px;
     font-family: 'Dancing Script', cursive;
     font-size: 60px;
 }
 
-.brands {
+.brands-cursive-padding-color {
     padding: 12px;
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
@@ -26,17 +26,27 @@ span {
 
 }
 
-.image {
-    margin: 0 auto;
+/* ------------------ Roboto fonts ------------------ */
+
+span {
+    font-family: Roboto, san-serif;
 }
 
-.info {
+.roboto-font {
+    font-family: Roboto;
+}
+
+
+/* --------------------- Bitter fonts ---------------------- */
+
+
+.bitter-font-bold {
     font-family: 'Bitter', serif;
     font: bold;
     font-weight: 900;
 }
 
-.filter {
+.bitter-grey-medium {
     font-family: 'Bitter', serif;
     color: grey;
     font-size: 15px;
@@ -45,7 +55,7 @@ span {
     margin-top: 5px;
 }
 
-.filtero {
+.bitter-black-large {
     font-family: 'Bitter', serif;
     color: black;
     font-size: 25px;
@@ -54,12 +64,9 @@ span {
     margin-top: 5px;
 }
 
-.specs {
-    font-family: Roboto;
-}
+/* ----------------- IMAGE PROPERTIES ------------------- */
 
-
-.imageo {
+.image-center-size {
     width: 100%;
     height: 300px;
     object-fit: cover;
@@ -108,6 +115,9 @@ span {
   transform: translateY(-50%);
   cursor: pointer;
 }
+
+
+/* -------------------------------- MEDIA QUERIES ----------------------- */
 
 /* For desktop view (1281px and above) */
 @media (min-width: 1281px) {

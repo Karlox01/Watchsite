@@ -6,7 +6,7 @@
 
 {% block content %}
 <div class="mt-6 px-6 py-12 rounded-xl bg-gray-100">
-    <h2 class="mb-12 text-center w-full stock"> Current stock </h2>
+    <h2 class="mb-12 text-center w-full cursive-padding-size"> Current stock </h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-6">
         {% for watch in items %}
         <div class="mb-6">
@@ -24,13 +24,13 @@
                         <h2 class="text-lg uppercase text-center span">
                             {{ watch.name }}
                         </h2>
-                        <p class="text-center font-semibold info mt-4"> Price : {{ watch.price|intcomma }} <i
+                        <p class="text-center font-semibold bitter-font-bold mt-4"> Price : {{ watch.price|intcomma }} <i
                                 class="fa-solid fa-sterling-sign"></i></p>
-                        <p class="text-center mt-1 font-semibold info"> Year : <span
-                                class="text-center info">{{ watch.year }} </span></p>
+                        <p class="text-center mt-1 font-semibold bitter-font-bold"> Year : <span
+                                class="text-center bitter-font-bold">{{ watch.year }} </span></p>
                         <div class="flex justify-center mt-2">
                             <div class="text-center mr-4">
-                                <span class="font-semibold text-s info">With box</span>
+                                <span class="font-semibold text-s bitter-font-bold">With box</span>
                                 {% if watch.has_box %}
                                 <span class="font-light text-s"><i class="fa-regular fa-circle-check"></i></span>
                                 {% else %}
@@ -40,7 +40,7 @@
 
                             <!-- Check if has_papers is True and display the icon accordingly -->
                             <div class="text-center">
-                                <span class="font-semibold text-s info">With papers</span>
+                                <span class="font-semibold text-s bitter-font-bold">With papers</span>
                                 {% if watch.has_papers %}
                                 <span class="font-light text-s"><i class="fa-regular fa-circle-check"></i></span>
                                 {% else %}
@@ -55,7 +55,7 @@
                                 </a>
                             </p>
                             <a href="{% url 'watches:submit_offer' watch.pk %}"
-                                class="mt-2 px-4 py-1 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive">Submit
+                                class="mt-2 px-4 py-1 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl main-header-cursive">Submit
                                 an Offer</a>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
 
 
 <div class="mt-6 px-6 py-12 bg-gray-100 rounded-xl">
-    <h2 class="mb-12 text-center stock"> Categories </h2>
+    <h2 class="mb-12 text-center cursive-padding-size"> Categories </h2>
 
     <div class="grid grid-cols-1 text-center">
         {% for category in categories %}
@@ -76,7 +76,7 @@
             <a href="{% url 'watches:watches_by_category' category_name=category.name %}">
                 <div class="p-6 bg-white-rounded-b-xl">
                     <h2 class="text-2xl font-semibold uppercase tracking-widest">{{ category.name }}</h2>
-                    <p class="text-gray-500 cursive mt-6">{{ category.items.count }} Items</p>
+                    <p class="text-gray-500 main-header-cursive mt-6">{{ category.items.count }} Items</p>
                 </div>
             </a>
         </div>

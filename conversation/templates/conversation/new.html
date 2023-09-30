@@ -5,20 +5,20 @@
 {% block title %} New Conversation {% endblock %}
 
 {% block content %}
-<h1 class="text-6xl cursive text-center mb-5"> New Conversation </h1>
+<h1 class="text-6xl main-header-cursive text-center mb-5"> New Conversation </h1>
 
 <div class="space-y-6">
     {% for message in conversation.messages.all %}
     <div class="p-6 flex {% if message.created_by == request.user %}bg-blue-100 {% else %}bg-gray-100 rounded-xl {% endif %}">
         <div>
             <p class="mb-4 text-center">
-                <strong class="cursive text-3xl mr-3">{{ message.created_by.username }}</strong> <span class="text-xs"> Has sent you a message on : {{ message.created_at }} </span>
+                <strong class="main-header-cursive text-3xl mr-3">{{ message.created_by.username }}</strong> <span class="text-xs"> Has sent you a message on : {{ message.created_at }} </span>
                 {% if message.is_offer %}
                 <p class="offer-message">
-                    <strong class="text-2xl mr-2 filter">I have a price proposal for: {{ conversation.item.name }}</strong>
+                    <strong class="text-2xl mr-2 bitter-grey-medium">I have a price proposal for: {{ conversation.item.name }}</strong>
                     <hr>
                     <div class="text-center"> <!-- Wrap the content in a block-level container -->
-                        <span class="filter text-2xl">{{ message.content }}</span>
+                        <span class="bitter-grey-medium text-2xl">{{ message.content }}</span>
                     </div>
                 </p>
                 {% else %}
@@ -47,8 +47,8 @@
     </div>
     {% endif %}
 
-    <button class="mb-4 px-4 py-2 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive">Send</button>
+    <button class="mb-4 px-4 py-2 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl main-header-cursive">Send</button>
 </form>
 
-<a href="{% url 'conversation:inbox' %}" class="mt-2 px-4 py-2 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl cursive">Return to Inbox</a>
+<a href="{% url 'conversation:inbox' %}" class="mt-2 px-4 py-2 font-semibold bg-gray-600 text-white hover:bg-teal-700 rounded-xl main-header-cursive">Return to Inbox</a>
 {% endblock %}

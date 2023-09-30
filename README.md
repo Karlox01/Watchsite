@@ -1,6 +1,6 @@
 # Watches By Karl
 
-![Watches By Karl Logo](https://your-logo-url.com)
+![Watches By Karl Logo](readmephotos/Logo_Karl.JPG)
 
 **Description:** Watches By Karl is a Django-based web application for buying, selling, and trading pre-owned watches. Our platform caters to watch enthusiasts, offering a curated collection of high-quality pre-owned watches, including renowned brands like Breitling, PANERAI, Cartier, Tudor, Tag Heuer, and Rolex. Whether you're looking to purchase, sell, or trade watches, Watches By Karl is your trusted destination.
 
@@ -31,7 +31,7 @@
   - [Content](#content)
   - [Media](#media)
   - [Code](#code)
-
+  
 ## Introduction
 
 Watches By Karl is your go-to destination for high-quality pre-owned watches. Whether you're an avid collector, a first-time buyer, or looking to sell your watch, our platform caters to all your watch-related needs. Explore our collection, submit offers, and engage with other watch enthusiasts through our messaging system.
@@ -87,11 +87,11 @@ I have carefully designed the website for a visually appealing experience.
 ### Homepage
 
 - **Main Screen**: Features a captivating image and slogan.
-  
+
 ### Browse Watches
 
 - **Watch Selection**: Showcases detailed information about pre-owned watches.
-  
+
 ### Submit Offers
 
 - **User-Friendly Form**: Provides a form to submit offers and request callbacks.
@@ -106,29 +106,27 @@ I have carefully designed the website for a visually appealing experience.
 
 ## Testing
 
-- **HTML Validator**: Ensured HTML code passes validation.
 - **CSS Validator**: Ensured CSS code passes validation.
 - **Lighthouse**: Conducted performance testing for efficient loading.
 - **Manual Testing**: Tested on various browsers and devices for optimal responsiveness.
+- **Issues and Their Solutions**: Documented and resolved issues encountered during development.
 
 ## Deployment
 
-The website will be deployed to Heroku (TO DO ). Follow these steps to view it:
+The website will be deployed to Heroku. If you want to view it on your local server, Please follow these steps :
 
-1. 
-
-
-
+1. Clone this repository to your local machine.
+2. Navigate to the project directory.
+3. Install the required dependencies using `pip install -r requirements.txt`.
+4. Run the application using `python manage.py runserver`.
+5. Access the website at `http://localhost:8000`.
 
 ## Credits
 
 **Content**: Our content is inspired by the world of horology and the passion of watch enthusiasts.
 
-**Media**: 
+**Media**: Placeholder for media credits.
 
-**Code**: 
- Fonts were chosen from Google Fonts, and color selection was inspired by tailwind projects.
+**Code**: Fonts were chosen from Google Fonts, and color selection was inspired by tailwind projects.
 
-**Copilot**: Special thanks to GPT-3.5 Assistant - Alex (Hes named himself Alex!!) for providing valuable assistance throughout the project, Including testing of my code for potential erros.
-
-
+**Copilot**: Special thanks to GPT-3.5 Assistant - Alex for providing valuable assistance throughout the project, Including testing of my code for potential errors.

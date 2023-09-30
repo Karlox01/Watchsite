@@ -5,30 +5,30 @@
 {% block content %}
 <section class="bg-gray-700">
   <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-      <a href="#" class="flex items-center mb-6 cursiv text-5xl text-white">
+      <a href="#" class="flex items-center mb-6 login-cursive text-5xl text-white">
         Watches By Karl
       </a>
       <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
           <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <h1 class="filter text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+              <h1 class="bitter-grey-medium text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                   Sign up for an account
               </h1>
               <form method="post" action=".">
                   {% csrf_token %}
                   <div>
-                      <label for="username" class="filter text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Username</label>
+                      <label for="username" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Username</label>
                       {{ form.username }}
                   </div>
                   <div>
-                      <label for="email" class="filter text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Email</label>
+                      <label for="email" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Email</label>
                       {{ form.email }}
                   </div>
                   <div>
-                      <label for="password1" class="filter text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Password</label>
+                      <label for="password1" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Password</label>
                       {{ form.password1 }}
                   </div>
                   <div>
-                      <label for="password2" class="filter text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Repeat Password</label>
+                      <label for="password2" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Repeat Password</label>
                       {{ form.password2 }}
                   </div>
                   {% if form.errors or form.non_field_errors %}
@@ -39,12 +39,12 @@
                           {{ form.non_field_errors }}
                       </div>
                   {% endif %}
-                  <button type="submit" class="w-full text-sm text-white filter">Sign up</button>
-                  <p class="text-sm text-white text-center mt-1 filter">
+                  <button type="submit" class="w-full text-sm text-white bitter-grey-medium">Sign up</button>
+                  <p class="text-sm text-white text-center mt-1 bitter-grey-medium">
                     Already have an account? 
                 </p>
                 <p class="text-sm text-center mt-1">
-                    <a href="{% url 'watchapp:login' %}" class="filter font-semibold text-sm text-white hover:underline">Sign in</a>
+                    <a href="{% url 'watchapp:login' %}" class="bitter-grey-medium font-semibold text-sm text-white hover:underline">Sign in</a>
                 </p>
               </form>
           </div>
