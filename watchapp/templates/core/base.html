@@ -38,12 +38,12 @@
                 class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">BROWSE</a>
             <a href="{% url 'conversation:inbox' %}"
                 class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">INBOX</a>
-                <select id="brandFilter" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-teal-700">
-                    <option value="">BROWSE BRANDS</option>
-                    {% for brand in available_brands %}
-                        <option value="{{ brand }}">{{ brand }}</option>
-                    {% endfor %}
-                </select>
+            <select id="brandFilter" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-teal-700">
+                <option value="">BROWSE BRANDS</option>
+                {% for brand in available_brands %}
+                <option value="{{ brand }}">{{ brand }}</option>
+                {% endfor %}
+            </select>
             <a href="{% url 'watchapp:logout' %}"
                 class="px-2 py-2 text-lg text-white main-header-cursive hover:text-red-500">LOG
                 OUT</a>
@@ -146,13 +146,15 @@
         }
 
         $(document).ready(function () {
-        // Listen for changes in the brand filter
-        $("#brandFilter").change(function () {
-            var selectedBrand = $(this).val();
-            // Redirect to the filtered items page with the selected brand
-            window.location.href = "{% url 'watches:watches_by_category' %}?brand=" + selectedBrand;
+            // Listen for changes in the brand filter
+            $("#brandFilter").change(function () {
+                var selectedBrand = $(this).val();
+                var category = "{{ category_name }}"; // Replace this with the actual category name
+                // Redirect to the filtered items page with the selected brand
+                window.location.href = "{% url 'watches:watches_by_category' %}?category_name=" +
+                    category + "&brand=" + selectedBrand;
+            });
         });
-    });
     </script>
 
 </body>
