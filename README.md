@@ -31,7 +31,7 @@
   - [Content](#content)
   - [Media](#media)
   - [Code](#code)
-  
+
 ## Introduction
 
 Watches By Karl is your go-to destination for high-quality pre-owned watches. Whether you're an avid collector, a first-time buyer, or looking to sell your watch, our platform caters to all your watch-related needs. Explore our collection, submit offers, and engage with other watch enthusiasts through our messaging system.
@@ -77,9 +77,19 @@ The website is structured to provide a user-friendly experience:
 
 I have carefully designed the website for a visually appealing experience.
 
+**Color Scheme**:
+- The project uses a color scheme that includes various shades, predominantly a combination of black, grey, and cursive fonts for specific highlighted elements.
+
+**Fonts**:
+- The fonts used in this project are selected from Google Fonts to ensure readability and aesthetics. These include 'Dancing Script', 'Roboto', and 'Bitter'.
+
 ### Surface
 
 - **Fonts**: We use Google Fonts to ensure readability and aesthetics.
+- [Google Fonts](https://fonts.google.com/): Fonts used for this project : 
+  - [Roboto](https://fonts.google.com/specimen/Roboto?query=roboto)
+  - [Dancing Script](https://fonts.google.com/specimen/Dancing+Script?query=dancing+script)
+  - [Bitter](https://fonts.google.com/specimen/Bitter?query=bitter)
 - **Color Scheme**: Our color scheme incorporates various shades to enhance visual appeal and readability.
 
 ## Features
@@ -106,14 +116,17 @@ I have carefully designed the website for a visually appealing experience.
 
 ## Testing
 
+- **HTML Validator**: Ensured HTML code passes validation.
 - **CSS Validator**: Ensured CSS code passes validation.
 - **Lighthouse**: Conducted performance testing for efficient loading.
 - **Manual Testing**: Tested on various browsers and devices for optimal responsiveness.
-- **Issues and Their Solutions**: Documented and resolved issues encountered during development.
+- **Issues and Their Solutions**:
+  - *Local CSS Display Issue*: During development, I encountered a problem with local CSS not displaying when the `DEBUG` setting was set to `False` and the project was deployed to Heroku. The solution to this issue was to include [WhiteNoise](http://whitenoise.evans.io/en/stable/) as an intermediary to serve static files efficiently.
+
 
 ## Deployment
 
-The website will be deployed to Heroku. If you want to view it on your local server, Please follow these steps :
+The website will be deployed to Heroku. If you want to view it on your local server, Please follow these steps:
 
 1. Clone this repository to your local machine.
 2. Navigate to the project directory.
@@ -130,3 +143,12 @@ The website will be deployed to Heroku. If you want to view it on your local ser
 **Code**: Fonts were chosen from Google Fonts, and color selection was inspired by tailwind projects.
 
 **Copilot**: Special thanks to GPT-3.5 Assistant - Alex for providing valuable assistance throughout the project, Including testing of my code for potential errors.
+
+**Libraries and Frameworks**:
+- [Tailwind CSS](https://tailwindcss.com/): Used for creating efficient, responsive designs.
+- [Google Fonts](https://fonts.google.com/): Provides a wide range of fonts for improved readability and aesthetics.
+- [Font Awesome](https://fontawesome.com/): Used for adding scalable vector icons and logos.
+
+**YouTube Videos i drew inspiration from**:
+- [Link 1](https://www.youtube.com/watch?v=ZxMB6Njs3ck&list=LL&index=4&t=5365s)
+- [Link 2](https://www.youtube.com/watch?v=HnBluva-Gx4&list=LL&index=5)
