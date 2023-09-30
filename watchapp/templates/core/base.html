@@ -24,28 +24,19 @@
 
 <body class="bg-white">
 
-    <nav
-        class="py-6 flex flex-col sm:flex-row justify-center items-center border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
+    <nav class="py-6 flex flex-col sm:flex-row justify-center items-center border-b border-gray-200 px-4 lg:px-6 py-2.5 bg-gray-700 nav-bar">
         <a href="/" class="flex items-center main-header-cursive text-white text-5xl justify-center lg:justify-start">
             Watches By Karl
         </a>
         </div>
         <div class="mt-4 ml-5 sm:mt-0 space-x-4 flex flex-wrap items-center justify-center">
             {% if request.user.is_authenticated %}
-            <span class="text-lg rounded-lg main-header-cursive text-white">Hello there
-                {{ request.user.username }}</span>
+            <span class="text-lg rounded-lg main-header-cursive text-white">Hello there {{ request.user.username }}</span>
             <a href="{% url 'watches:items' %}"
                 class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">BROWSE</a>
-            <a href="{% url 'conversation:inbox' %}"
-                class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">INBOX</a>
-                <select id="brandFilter" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-teal-700">
-                    <option value="">BROWSE BRANDS</option>
-                    {% for brand in available_brands %}
-                    <option value="{{ brand }}">{{ brand }}</option>
-                    {% endfor %}
-                </select>
-            <a href="{% url 'watchapp:logout' %}"
-                class="px-2 py-2 text-lg text-white main-header-cursive hover:text-red-500">LOG
+            <a href="{% url 'conversation:inbox' %}" class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">INBOX</a>
+            <a href="/" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-teal-700">DASHBOARD</a>
+            <a href="{% url 'watchapp:logout' %}" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-red-500">LOG
                 OUT</a>
             {% else %}
             <a href="{% url 'watches:items' %}"
@@ -59,7 +50,7 @@
             {% endif %}
         </div>
     </nav>
-
+    
 
     <div class="px-4 sm:px-6 py-6">
         {% block content %}
@@ -87,25 +78,21 @@
         <div class="w-full sm:w-1/3 mt-4 sm:mt-0">
             <h3 class="mb-5 font-semibold main-header-cursive text-center text-white">Additional Info</h3>
             <ul class="space-y-2">
-                <li><a href="#"
-                        class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Payment</a><span
+                <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Payment</a><span
                         class="text-right text-sm text-white">To be made within 2 hours of purchase. Otherwise, the sale
                         will be canceled.</span></li>
-                <li><a href="#"
-                        class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Contact</a><span
+                <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Contact</a><span
                         class="text-right text-sm text-white">Feel free to get in touch with us using our convenient
                         messaging system on the website. Alternatively, you can reach out to us via email at
                         watchesbykarl@gmail.com. We're here to assist you with any inquiries or requests you may have!"
 
                         This message encourages buyers to use the website's messaging system while also providing your
                         email address as an alternative contact method.</span></li>
-                <li><a href="#"
-                        class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Shipping</a><span
+                <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Shipping</a><span
                         class="text-right text-sm text-white">Purchases over eBay are shipped strictly to the UK. If
                         international, please contact me, and I will arrange a quote. Payment must be made before the
                         product is shipped.</span></li>
-                <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Terms and
-                        conditions &
+                <li><a href="#" class="text-lg text-teal-500 hover:text-teal-700 main-header-cursive mr-4">Terms and conditions &
                         Disclaimer</a><span class="text-sm text-white">I reserve the right to withdraw from the sale if
                         the purchaser holds less
                         than 10 positive eBay reviews.
@@ -118,43 +105,33 @@
     </footer>
 
     <script>
+        
         var currentURL = window.location.href;
 
-
+        
         if (currentURL.indexOf("/watches/") !== -1) {
-
+            
             document.querySelector('.nav-bar').classList.add('browse-page-nav');
         } else {
-
+            
             document.querySelector('.nav-bar').classList.remove('browse-page-nav');
         }
         $(document).ready(function () {
             $("#imageCarousel").owlCarousel({
-                items: 1,
-                loop: true,
-                nav: true,
-                dots: false,
+                items: 1, 
+                loop: true, 
+                nav: true, 
+                dots: false, 
                 navText: ["<i class='fa-solid fa-chevron-left text-left'></i>",
                     "<i class='fa-solid fa-chevron-right'></i>"
-                ]
+                ] 
             });
         });
 
         function validateNumber(input) {
-
+            
             input.value = input.value.replace(/[^0-9]/g, '');
         }
-
-        $(document).ready(function () {
-        // Listen for changes in the brand filter
-        $("#brandFilter").change(function () {
-            var selectedBrand = $(this).val();
-            var category = "{{ category_name }}"; // Use the category_name from the context
-            // Redirect to the filtered items page with the selected brand and category_name
-            window.location.href = "{% url 'watches_by_category' %}?category_name=" +
-                category + "&brand=" + selectedBrand;
-        });
-    });
     </script>
 
 </body>
