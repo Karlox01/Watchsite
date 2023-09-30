@@ -60,7 +60,21 @@ def filtered_items(request, category_name=None):
     })
 
 
+def watches_by_category(request, category_name):
+    brand = request.GET.get('brand')  # Get the selected brand from the query parameters
 
+    # Retrieve items based on category and optional brand filter
+    items = Item.objects.filter(category__name=category_name, is_sold=False)
+    if brand:
+        items = items.filter(brand=brand)
+
+    # Other view logic here...
+
+    return render(request, 'watches/watches_by_category.html', {
+        'items': items,
+        'category_name': category_name,
+        'selected_brand': brand,  # Pass the selected brand to the template
+    })
 
 
 
