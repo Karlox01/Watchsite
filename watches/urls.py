@@ -12,5 +12,5 @@ urlpatterns = [
     path('watches/filter/price/', views.filtered_items, name='filtered_watches_by_price'),  # Change to 'filtered_items'
     path('filtered_watches_by_year/', views.filtered_items, name='filtered_watches_by_year'),
     path('search/', views.search_items, name='search_items'),
-    path('watches/category/<str:category_name>/', views.filtered_items, name='watches_by_category'),
+    path('watches/category/<str:category_name>/', views.watches_by_category, name='watches_by_category'),
 ] 
