@@ -231,20 +231,24 @@ span {
 
 /* Style for the dropdown container */
 .dropdown-container {
-    position: absolute !important;
-    display: none !important;
-    background-color: white !important;
+    position: absolute;
+    display: none;
+    background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
+/* CSS to show the dropdown when the parent is hovered */
+.relative:hover .dropdown-container {
+    display: block;
+}
+
 /* Style for dropdown items */
 .dropdown-item {
     padding: 10px;
     text-decoration: none;
-    display: block !important;
     color: #333;
 }
 
