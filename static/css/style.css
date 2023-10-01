@@ -259,7 +259,7 @@ span {
 
 /* Show dropdown when the parent is hovered */
 .relative:hover .dropdown-container {
-    max-height: 200px; /* Increase the max-height to show more items */
+    max-height: auto; /* Increase the max-height to show more items */
 }
 
 /* Skew and style for dropdown links */
