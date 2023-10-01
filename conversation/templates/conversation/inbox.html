@@ -17,14 +17,27 @@
                 <div class="flex flex-col">
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong class="bitter-black-large"><span class="text-xl"> A message has been sent to : <span class="uppercase text-xl">{{ member.username }}</span> on : </span></strong> | {{ conversation.modified_at }}</p>
+                            <p class="mb-4">
+                                <strong class="bitter-black-large">
+                                    {{ conversation.latest_message.created_by }} 
+                                    Has sent a message to 
+                                    {{ member.username }} 
+                                    on {{ conversation.modified_at }}
+                                </strong>
+                            </p>
                             <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
 
                             <!-- Display all offer messages for this conversation -->
                             {% for offer_message in offer_messages %}
                                 {% if offer_message.conversation == conversation %}
                                     <div class="offer">
-                                        <p><strong class="bitter-grey-medium">New price suggestion :  <i class="fa-solid fa-scale-unbalanced-flip"> </i> </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
+                                        <p>
+                                            <strong class="bitter-grey-medium">
+                                                New price suggestion :  
+                                                <i class="fa-solid fa-scale-unbalanced-flip"> </i>
+                                            </strong> 
+                                            <span class="bitter-grey-medium">{{ offer_message.content }}</span>
+                                        </p>
                                     </div>
                                 {% endif %}
                             {% endfor %}
