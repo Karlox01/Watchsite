@@ -198,15 +198,36 @@ span {
     }
 }
 
+/* -------------------- DROP DOWN MENU ---------------------------- */
 
 
-
-.group:hover .absolute {
-    display: block;
+/* Add styles for the Categories button */
+.group .btn-categories {
+    cursor: pointer;
 }
 
-.absolute {
+/* Style for the dropdown container */
+.dropdown-container {
+    position: absolute;
     display: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style for dropdown items */
+.dropdown-item {
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+
+/* Hover effect for dropdown items */
+.dropdown-item:hover {
+    background-color: #f1f1f1;
 }
 
 
