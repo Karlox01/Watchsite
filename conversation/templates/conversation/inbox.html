@@ -18,14 +18,14 @@
                 <div class="flex flex-col">
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong class="bitter-black-large">{{ member.username }} <span class="text-xs"> Has sent a message on : </span></strong> | {{ conversation.modified_at }}</p>
+                            <p class="mb-4"><strong class="bitter-black-large">{{ message.created_by.username }} <span class="text-xs"> Has sent a message to {{ member.username }} on : </span></strong> | {{ conversation.modified_at }}</p>
                             <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
 
                             <!-- Display all offer messages for this conversation -->
                             {% for offer_message in offer_messages %}
                                 {% if offer_message.conversation == conversation %}
                                     <div class="offer">
-                                        <p><strong class="bitter-grey-medium">New price suggestion : </strong> <span class="text-xs font-semibold">{{ offer_message.content }}</span> </p>
+                                        <p><strong class="bitter-grey-medium">New price suggestion :  <i class="fa-solid fa-scale-unbalanced-flip"></i> </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
                                     </div>
                                 {% endif %}
                             {% endfor %}
