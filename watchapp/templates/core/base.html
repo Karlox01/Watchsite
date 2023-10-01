@@ -38,7 +38,23 @@
                 class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">BROWSE</a>
             <a href="{% url 'conversation:inbox' %}"
                 class="px-2 py-2 text-white main-header-cursive hover:text-teal-700">INBOX</a>
-            <a href="/" class="px-2 py-2 text-lg text-white main-header-cursive hover:text-teal-700">DASHBOARD</a>
+                <div class="relative text-center">
+                    <div class="inline-block">
+                        <button class="py-2 px-2 rounded-md brands-cursive-padding-color btn-categories focus:outline-none hover:bg-gray-200">
+                            BRANDS
+                        </button>
+                        <div class="dropdown-container">
+                            <ul>
+                                <li><a href="{% url 'watches:items' %}">All</a></li>
+                                {% for category in categories %}
+                                <li>
+                                    <a href="{% url 'watches:items' %}?category={{ category.id }}">{{ category.name }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             <a href="{% url 'watchapp:logout' %}"
                 class="px-2 py-2 text-lg text-white main-header-cursive hover:text-red-500">LOG
                 OUT</a>
