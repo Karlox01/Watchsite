@@ -27,7 +27,7 @@ Watches by Filter
                 <div class="relative text-center sm:text-left">
                     <div class="relative group inline-block text-center">
                         <button
-                            class="py-2 px-2 rounded-md brands-cursive-padding-color btn-categories focus:outline-none hover:bg-gray-200">
+                            class="py-2 px-2 rounded-md brands-cursive-padding-color btn-categories focus:outline-none hover:bg-gray-200 text-center">
                             CATEGORIES
                         </button>
                         <div
@@ -89,6 +89,27 @@ Watches by Filter
     </div> <!-- Close the 'col-span-1 bg-gray-200 p-4 rounded-xl' div here -->
 
     <div class="col-span-1 sm:col-span-3">
+        <!-- Search Form -->
+        <form method="get" action="{% url 'watches:search_items' %}">
+            <div class="relative mt-4 mb-4">
+                <label for="search"
+                    class="mb-2 text-gray-900 sr-only bitter-grey-medium text-center">Search</label>
+                <input type="search" id="search" name="query"
+                    class="block w-full p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-700 bitter-grey-medium"
+                    placeholder="Browse the available brands" required>
+                <button type="submit"
+                    class="bitter-grey-medium absolute right-2.5 bottom-2.5 font-semibold">Search</button>
+            </div>
+        </form>
+        <ul>
+            <li>
+                <a href="{% url 'watches:items' %}"
+                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white">
+                    Clear
+                </a>
+            </li>
+        </ul>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {% for watch in items %}
             <div class="flex flex-col items-center">
