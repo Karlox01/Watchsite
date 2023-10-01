@@ -45,11 +45,7 @@
                     </button>
                     <div class="dropdown-container">
                         <ul>
-                            <li><a href="{% url 'watches:items' %}?query={{ query }}">All a </a>
-                                a!lonsdasddddddddddddddddddddddddddddddddddddddddddddddddddddddddd</li>
-                            <li>dasdasd</li>
-                            <li>asdasdasd</li>
-                            <li>asdas</li>
+                            <li><a href="{% url 'watches:items' %}?query={{ query }}">All</a>
                             {% for category in categories %}
                             <li>
                                 <a href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>

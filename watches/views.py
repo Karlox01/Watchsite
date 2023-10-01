@@ -61,11 +61,6 @@ def filtered_items(request, category_name=None):
 
 
 
-
-
-
-
-
 def search_items(request):
     query = request.GET.get('query', '')
 
@@ -99,7 +94,8 @@ def detail(request, pk):
 
     return render(request, 'watches/detail.html', {
         'item': item,
-        'related_items': related_items
+        'related_items': related_items,
+        'categories': categories,
     })
 
 @login_required
