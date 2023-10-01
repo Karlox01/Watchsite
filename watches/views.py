@@ -103,6 +103,7 @@ def detail(request, pk):
 @login_required
 def submit_offer(request, pk):
     item = get_object_or_404(Item, pk=pk)
+    categories = Category.objects.all()
 
     if request.method == 'POST':
         offer_amount = request.POST.get('offer_amount')
