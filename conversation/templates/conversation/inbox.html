@@ -18,7 +18,7 @@
                 <div class="flex flex-col">
                     {% for member in conversation.members.all %}
                         {% if member != request.user %}
-                            <p class="mb-4"><strong class="bitter-black-large"><span class="text-xs"> A message has been send to : <span class="uppercase text-xl">{{ member.username }}</span> on : </span></strong> | {{ conversation.modified_at }}</p>
+                            <p class="mb-4"><strong class="bitter-black-large"><span class="text-xs"> A message has been sent to : <span class="uppercase text-xl">{{ member.username }}</span> on : </span></strong> | {{ conversation.modified_at }}</p>
                             <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
 
                             <!-- Display all offer messages for this conversation -->
