@@ -71,7 +71,7 @@
                             <li><a href="{% url 'watches:items' %}">All</a></li>
                             {% for category in categories %}
                             <li>
-                                <a href="{% url 'watches:items' %}?category={{ category.id }}">{{ category.name }}</a>
+                                <a href="{% url 'watches:items' %}?category={{ category.id }}">Yea {{ category.name }}</a>
                             </li>
                             {% endfor %}
                         </ul>
