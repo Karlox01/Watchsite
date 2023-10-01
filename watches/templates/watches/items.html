@@ -27,11 +27,11 @@ Watches by Filter
                     </button>
                     <div class="dropdown-container">
                         <ul>
-                            <li><a href="{% url 'watches:items' %}?query={{ query }}"> Yea All</a></li>
+                            <li><a href="{% url 'watches:items' %}?query={{ query }}">All</a></li>
                             {% for category in categories %}
                             <li>
                                 <a
-                                    href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">Yes {{ category.name }}</a>
+                                    href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
                             </li>
                             {% endfor %}
                         </ul>

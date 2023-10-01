@@ -68,10 +68,10 @@
                     </button>
                     <div class="dropdown-container">
                         <ul>
-                            <li><a href="{% url 'watches:items' %}">All</a>1</li>
+                            <li><a href="{% url 'watches:items' %}">All</a></li>
                             {% for category in categories %}
                             <li>
-                                Yes<a href="{% url 'watches:items' %}?category={{ category.id }}">{{ category.name }}</a>
+                                <a href="{% url 'watches:items' %}?category={{ category.id }}">{{ category.name }}</a>
                             </li>
                             {% endfor %}
                         </ul>
