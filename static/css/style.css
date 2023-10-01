@@ -209,7 +209,6 @@ span {
 /* Style for the dropdown container */
 .dropdown-container {
     position: absolute;
-    display: none;
     background-color: white;
     border: 1px solid #ccc;
     border-radius: 4px;
