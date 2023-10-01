@@ -201,3 +201,14 @@ span {
 
 
 
+.group:hover .absolute {
+    display: block;
+}
+
+.absolute {
+    display: none;
+}
+
+
+
+
