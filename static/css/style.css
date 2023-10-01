@@ -266,6 +266,7 @@ span {
 .relative .dropdown-container a {
     color: white;
     text-decoration: none;
+    font-family: 'Bitter', serif;
 }
 
 /* Position and style for submenu shadow */
