@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.views import LoginView
 
 from watches.models import Category, Item
 
@@ -15,6 +16,24 @@ def index(request):
 
 def contact(request):
     return render(request, 'core/contact.html')
+
+
+
+class CustomLoginView(LoginView):
+    template_name = 'core/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = Category.objects.all()
+        return context
+
+    def render_to_response(self, context, **response_kwargs):
+        return self.response_class(
+            request=self.request,
+            template=self.get_template_names(),
+            context=context,
+            **response_kwargs
+        )
 
 
 def signup(request):
