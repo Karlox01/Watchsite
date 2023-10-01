@@ -18,30 +18,28 @@ Watches by Filter
 <div class="col-span-1 w-full">
     <img src="https://wallpapercave.com/wp/wp10728814.jpg" alt="Wide Image" class="image-center-size">
 </div>
-<div class="py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-100">
-    <div class="col-span-1 bg-gray-200 p-4 rounded-xl">
-        <hr class="my-4">
-        <div class="mb-4">
-            <div class="text-center">
-                <p class="bitter-grey-medium text-gray-900 font-semibold text-xl">CATEGORIES</p>
-                <ul>
-                    <li class="py-2 px-2 rounded-md brands-cursive-padding-color">
-                        <a href="{% url 'watches:items' %}?query={{ query }}">All</a>
-                    </li>
-                    {% for category in categories %}
-                    <li class="py-2 px-2 rounded-md{% if category.id == category_id %} bg-gray-200 {% endif %} brands-cursive-padding-color">
-                        <a
-                            href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+
+<!-- Filters Section -->
+<div class="w-full bg-gray-200 p-4 rounded-xl">
+    <div class="py-4 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+        <div class="text-center sm:text-left">
+            <p class="bitter-grey-medium text-gray-900 font-semibold text-xl">CATEGORIES</p>
+            <ul>
+                <li class="py-2 px-2 rounded-md brands-cursive-padding-color">
+                    <a href="{% url 'watches:items' %}?query={{ query }}">All</a>
+                </li>
+                {% for category in categories %}
+                <li class="py-2 px-2 rounded-md{% if category.id == category_id %} bg-gray-200 {% endif %} brands-cursive-padding-color">
+                    <a href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
 
-        <hr class="my-4">
+        <hr class="my-4 sm:hidden">
 
         <!-- Filter by Price Form -->
-        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
+        <div class="w-full sm:w-1/3">
             <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY PRICE</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_price' %}">
@@ -56,14 +54,13 @@ Watches by Filter
                         name="max_price" id="max_price" placeholder="Maximum Price:">
 
                     <button type="submit"
-                        class="bitter-grey-medium w-full block mt-2">Apply
-                        Filter</button>
+                        class="bitter-grey-medium w-full block mt-2">Apply Filter</button>
                 </form>
             </div>
         </div>
 
         <!-- Filter by Year Form -->
-        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
+        <div class="w-full sm:w-1/3">
             <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY YEAR</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_year' %}">
@@ -78,33 +75,35 @@ Watches by Filter
                         name="max_year" id="max_year" placeholder="Maximum Year:">
 
                     <button type="submit"
-                        class="bitter-grey-medium w-full block mt-2 ">Apply
-                        Filter</button>
+                        class="bitter-grey-medium w-full block mt-2">Apply Filter</button>
                 </form>
             </div>
         </div>
-        <form method="get" action="{% url 'watches:search_items' %}">
-            <div class="relative mt-4 mb-4">
-                <label for="search"
-                    class="mb-2 text-gray-900 sr-only bitter-grey-medium text-center">Search</label>
-                <input type="search" id="search" name="query"
-                    class="block w-full p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-700 bitter-grey-medium"
-                    placeholder="Browse the available brands" required>
-                <button type="submit"
-                    class="bitter-grey-medium absolute right-2.5 bottom-2.5 font-semibold">Search</button>
-            </div>
-        </form>
-        <ul>
-            <li>
-                <a href="{% url 'watches:items' %}"
-                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white">
-                    Clear
-                </a>
-            </li>
-        </ul>
-
     </div>
 
+    <form method="get" action="{% url 'watches:search_items' %}">
+        <div class="relative mt-4 mb-4">
+            <label for="search"
+                class="mb-2 text-gray-900 sr-only bitter-grey-medium text-center">Search</label>
+            <input type="search" id="search" name="query"
+                class="block w-full p-4 pl-10 text-sm border border-gray-300 rounded-lg bg-gray-700 bitter-grey-medium"
+                placeholder="Browse the available brands" required>
+            <button type="submit"
+                class="bitter-grey-medium absolute right-2.5 bottom-2.5 font-semibold">Search</button>
+        </div>
+    </form>
+    <ul>
+        <li>
+            <a href="{% url 'watches:items' %}"
+                class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white">
+                Clear
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!-- Watches Section -->
+<div class="py-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 bg-gray-100">
     <div class="col-span-1 sm:col-span-3">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {% for watch in items %}
