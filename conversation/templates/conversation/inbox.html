@@ -24,7 +24,7 @@
                             {% for offer_message in offer_messages %}
                                 {% if offer_message.conversation == conversation %}
                                     <div class="offer">
-                                        <p><strong class="bitter-grey-medium">New price suggestion :  <i class="fa-solid fa-scale-unbalanced-flip"></i> </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
+                                        <p><strong class="bitter-grey-medium">New price suggestion :  <i class="fa-solid fa-scale-unbalanced-flip"> </i> </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
                                     </div>
                                 {% endif %}
                             {% endfor %}
