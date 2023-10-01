@@ -23,12 +23,11 @@ Watches by Filter
 <div class="w-full bg-gray-200 p-4 rounded-xl">
     <div class="py-4 flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
         <div class="relative text-center sm:text-left">
-            <p class="bitter-grey-medium text-gray-900 font-semibold text-xl">CATEGORIES</p>
-            <div class="relative group">
+            <div class="relative group inline-block">
                 <button class="py-2 px-2 rounded-md brands-cursive-padding-color btn-categories focus:outline-none hover:bg-gray-200">
-                    Categories
+                    CATEGORIES
                 </button>
-                <div class="dropdown-container">
+                <div class="dropdown-container hidden absolute z-10 mt-2 py-2 px-2 bg-white border border-gray-300 rounded-md">
                     <ul>
                         <li><a href="{% url 'watches:items' %}?query={{ query }}">All</a></li>
                         {% for category in categories %}
