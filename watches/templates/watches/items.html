@@ -23,69 +23,67 @@ Watches by Filter
         <hr class="my-4">
         <div class="mb-4">
             <div class="text-center">
-                <!-- Add a class and an ID to the button -->
-                <div class="relative text-center sm:text-left">
-                    <div class="relative group inline-block text-center">
-                        <button
-                            class="py-2 px-2 rounded-md brands-cursive-padding-color btn-categories focus:outline-none hover:bg-gray-200 text-center">
-                            CATEGORIES
-                        </button>
-                        <div
-                            class="dropdown-container absolute z-10 mt-2 py-2 px-2 bg-white border border-gray-300 rounded-md">
-                            <ul>
-                                <li><a href="{% url 'watches:items' %}?query={{ query }}">All</a></li>
-                                {% for category in categories %}
-                                <li><a href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}"
-                                        class="dropdown-item">{{ category.name }}</a></li>
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="my-4">
-
-            <!-- Filter by Price Form -->
-            <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY PRICE</h2>
-                <div class="w-full flex flex-col items-center">
-                    <form method="get" action="{% url 'watches:filtered_watches_by_price' %}">
-                        <label for="min_price" class="text-sm text-gray-700 dark:text-gray-300"></label>
-                        <input type="number"
-                            class="ml-6 w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="min_price" id="min_price" placeholder="Minimum Price:">
-
-                        <label for="max_price" class="text-sm text-gray-700 dark:text-gray-300"></label>
-                        <input type="number"
-                            class="w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="max_price" id="max_price" placeholder="Maximum Price:">
-
-                        <button type="submit" class="bitter-grey-medium w-full block mt-2">Apply Filter</button>
-                    </form>
-                </div>
-            </div>
-
-            <!-- Filter by Year Form -->
-            <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
-                <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY YEAR</h2>
-                <div class="w-full flex flex-col items-center">
-                    <form method="get" action="{% url 'watches:filtered_watches_by_year' %}">
-                        <label for="min_year" class="text-sm text-gray-700 dark:text-gray-300"></label>
-                        <input type="number"
-                            class="ml-6 w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="min_year" id="min_year" placeholder="Minimum Year:">
-
-                        <label for="max_year" class="text-sm text-gray-700 dark:text-gray-300"></label>
-                        <input type="number"
-                            class="w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            name="max_year" id="max_year" placeholder="Maximum Year:">
-
-                        <button type="submit" class="bitter-grey-medium w-full block mt-2 ">Apply Filter</button>
-                    </form>
-                </div>
+                <p class="bitter-grey-medium text-gray-900 font-semibold text-xl">CATEGORIES</p>
+                <ul>
+                    <li class="py-2 px-2 rounded-md brands-cursive-padding-color">
+                        <a href="{% url 'watches:items' %}?query={{ query }}">All</a>
+                    </li>
+                    {% for category in categories %}
+                    <li class="py-2 px-2 rounded-md{% if category.id == category_id %} bg-gray-200 {% endif %} brands-cursive-padding-color">
+                        <a
+                            href="{% url 'watches:items' %}?query={{ query }}&category={{ category.id }}">{{ category.name }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
+
+        <hr class="my-4">
+
+        <!-- Filter by Price Form -->
+        <div class="bg-gray-200 p-4 rounded-lg">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY PRICE</h2>
+            <div class="w-full flex flex-col items-center">
+                <form method="get" action="{% url 'watches:filtered_watches_by_price' %}">
+                    <label for="min_price" class="text-sm text-gray-700 dark:text-gray-300"></label>
+                    <input type="number"
+                        class="ml-6 w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="min_price" id="min_price" placeholder="Minimum Price:">
+
+                    <label for="max_price" class="text-sm text-gray-700 dark:text-gray-300"></label>
+                    <input type="number"
+                        class="w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="max_price" id="max_price" placeholder="Maximum Price:">
+
+                    <button type="submit"
+                        class="bitter-grey-medium w-full block mt-2">Apply
+                        Filter</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Filter by Year Form -->
+        <div class="bg-gray-200 p-4 rounded-lg">
+            <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY YEAR</h2>
+            <div class="w-full flex flex-col items-center">
+                <form method="get" action="{% url 'watches:filtered_watches_by_year' %}">
+                    <label for="min_year" class="text-sm text-gray-700 dark:text-gray-300"></label>
+                    <input type="number"
+                        class="ml-6 w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="min_year" id="min_year" placeholder="Minimum Year:">
+
+                    <label for="max_year" class="text-sm text-gray-700 dark:text-gray-300"></label>
+                    <input type="number"
+                        class="w-5/12 login-cursive text-center border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        name="max_year" id="max_year" placeholder="Maximum Year:">
+
+                    <button type="submit"
+                        class="bitter-grey-medium w-full block mt-2 ">Apply
+                        Filter</button>
+                </form>
+            </div>
+        </div>
+
     </div> <!-- Close the 'col-span-1 bg-gray-200 p-4 rounded-xl' div here -->
 
     <div class="col-span-1 sm:col-span-3">
@@ -104,7 +102,7 @@ Watches by Filter
         <ul>
             <li>
                 <a href="{% url 'watches:items' %}"
-                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white">
+                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover-bg-gray-500 bitter-black-large text-white">
                     Clear
                 </a>
             </li>
