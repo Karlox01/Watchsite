@@ -121,8 +121,6 @@ def submit_offer(request, pk):
             is_offer=True  # Set this as an offer message
         )
 
-        categories = Category.objects.all()
-
         return render(request, 'watches/thanks.html', {'item': item, 'categories': categories})
 
     return render(request, 'watches/submit_offer.html', {'item': item, 'categories': categories})

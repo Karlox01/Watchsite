@@ -18,7 +18,9 @@
                         {% if member != request.user %}
                             <p class="mb-4"><strong class="bitter-black-large">
                                 {% if conversation.latest_message %}
-                                    {{ conversation.latest_message.created_by.username }}
+                                    {% with last_message=conversation.messages.latest %}
+                                        {{ last_message.created_by.username }}
+                                    {% endwith %}
                                 {% else %}
                                     {{ member.username }}
                                 {% endif %}
@@ -57,4 +59,5 @@
         </a>
     {% endfor %}
 </div>
+
 {% endblock %}
