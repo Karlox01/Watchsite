@@ -17,7 +17,13 @@
                     {% with latest_message=conversation.messages.all|dictsort:"created_at"|last %}
                         <p class="mb-4"><strong class="bitter-black-large">
                             {{ latest_message.created_by.username }}
-                            Has sent a message to {{ request.user.username }} on :
+                            Has sent a message to
+                            {% if latest_message.created_by != request.user %}
+                                {{ request.user.username }}
+                            {% else %}
+                                {{ conversation.members.exclude(id=request.user.id).first().username }}
+                            {% endif }}
+                            on :
                         </strong> | {{ latest_message.created_at }}</p>
                     {% endwith %}
                     <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
@@ -51,6 +57,7 @@
         </a>
     {% endfor %}
 </div>
+
 
 
 {% endblock %}
