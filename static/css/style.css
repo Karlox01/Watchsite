@@ -231,92 +231,57 @@ span {
 
 /* Style for the dropdown container */
 .dropdown-container {
+    overflow: hidden;
     position: absolute;
-    display: none;
-    background-color: #34495e;
-    width: 200px;
-    left: 50%;
-    margin-left: -100px;
-    transform: skewX(-25deg);
-    transform-origin: left top;
+    left: 0;
+    width: 100%;
+    background-color: #3862a0;
+    height: 0;
+    line-height: 40px;
+    box-sizing: border-box;
+    transition: height 0.3s ease-in-out;
+    transition-delay: 0.1s;
 }
 
 /* Style for dropdown items */
-.dropdown-item {
-    background: #34495e;
-    position: relative;
-    overflow: hidden;
-    padding: 10px;
+.dropdown-container a {
+    color: #fff;
+    margin-top: 20px;
+    font-size: 16px;
+    text-decoration: none;
 }
 
 /* Hover effect for dropdown items */
-.dropdown-item:hover {
-    background: #e74c3c;
+.dropdown-container a:hover {
+    color: #fff;
+    text-decoration: underline;
 }
 
 /* Show dropdown when the parent is hovered */
 .relative:hover .dropdown-container {
-    display: block;
+    height: 85px;
 }
 
 /* Skew and style for dropdown links */
 .relative .dropdown-container a {
+    color: #3862a0;
     display: block;
-    color: #fff;
+    padding: 0 7px 0 7px;
+    margin: 0 0 10px;
     text-decoration: none;
-    text-transform: uppercase;
-    font-family: Arial, Helvetica;
-    font-size: 14px;
-    padding: 1em 2em;
-    transform: skewX(-25deg);
+    position: relative;
 }
 
 /* Position and style for submenu shadow */
 .relative .dropdown-container::after {
-    content: '';
+    content: "";
     position: absolute;
-    top: -125%;
-    height: 100%;
     width: 100%;
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
-}
-
-/* Odd and even positioning for submenu items */
-.relative .dropdown-container li:nth-child(odd) {
-    transform: skewX(-25deg) translateX(0);
-}
-
-.relative .dropdown-container li:nth-child(odd) a {
-    transform: skewX(25deg);
-}
-
-.relative .dropdown-container li:nth-child(odd)::after {
-    right: -50%;
-    transform: skewX(-25deg) rotate(3deg);
-}
-
-.relative .dropdown-container li:nth-child(even) {
-    transform: skewX(25deg) translateX(0);
-}
-
-.relative .dropdown-container li:nth-child(even) a {
-    transform: skewX(-25deg);
-}
-
-.relative .dropdown-container li:nth-child(even)::after {
-    left: -50%;
-    transform: skewX(25deg) rotate(3deg);
-}
-
-/* Animation and visibility for submenu items */
-.relative .dropdown-container li {
-    opacity: 0;
+    height: 3px;
+    bottom: -10px;
+    left: 0px;
+    background-color: #3862a0;
+    transition: all 0.2s ease-in-out;
+    transform: scale(0, 0);
     visibility: hidden;
-    transition: all 0.2s ease-out;
-}
-
-/* Show submenu items on parent hover */
-.relative:hover .dropdown-container li {
-    opacity: 1;
-    visibility: visible;
 }
