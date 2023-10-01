@@ -69,7 +69,7 @@ span {
 .image-center-size {
     width: 100%;
     height: 300px;
-    object-fit: contain;
+    object-fit: span;
     object-position: 80% 50%;
 }
 
