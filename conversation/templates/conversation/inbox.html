@@ -14,7 +14,7 @@
                     <img src="{{ conversation.item.main_image.url }}" class="w-20 rounded-xl">
                 </div>
                 <div class="flex flex-col">
-                    {% with latest_message=conversation.messages.latest %}
+                    {% with latest_message=conversation.messages.all|dictsort:"created_at"|last %}
                         <p class="mb-4"><strong class="bitter-black-large">
                             {{ latest_message.created_by.username }}
                             Has sent a message to {{ request.user.username }} on :
@@ -51,5 +51,6 @@
         </a>
     {% endfor %}
 </div>
+
 
 {% endblock %}
