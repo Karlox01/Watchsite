@@ -1,6 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
-from watches.models import Item
+from watches.models import Item, Category
 from .forms import ConversationMessageForm
 from .models import Conversation
 from watches.models import Offer
@@ -8,6 +8,7 @@ from watches.models import Offer
 @login_required
 def new_conversation(request, item_pk):
     item = get_object_or_404(Item, pk=item_pk)
+    categories = Category.objects.all()
 
     if item.created_by == request.user:
         return redirect('conversation:inbox')
@@ -40,13 +41,16 @@ def new_conversation(request, item_pk):
         form = ConversationMessageForm()
     
     return render(request, 'conversation/new.html', {
-        'form': form
+        'form': form,
+        'categories': categories,
+
     })
 
 
 @login_required
 def inbox(request):
     conversations = Conversation.objects.filter(members=request.user)
+    categories = Category.objects.all()
 
     offer_messages = []
 
@@ -58,6 +62,7 @@ def inbox(request):
     return render(request, 'conversation/inbox.html', {
         'conversations': conversations,
         'offer_messages': offer_messages,
+        'categories': categories,
     })
 
 
@@ -65,6 +70,7 @@ def inbox(request):
 def detail(request, pk):
     conversation = get_object_or_404(Conversation, pk=pk, members=request.user)
     form = ConversationMessageForm()
+    categories = Category.objects.all()
 
     if request.method =='POST':
         form = ConversationMessageForm(request.POST)
@@ -83,6 +89,7 @@ def detail(request, pk):
         'conversation': conversation,
         'form': form,
         'messages': messages,
+        'categories': categories,
     })
 
 @login_required
