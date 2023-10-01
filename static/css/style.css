@@ -236,11 +236,11 @@ span {
     left: 0;
     width: 100%;
     background-color: #333;
-    /* Increase the height to accommodate all items */
-    height: auto;
-    line-height: 40px; /* You can remove this line */
+    height: 0; /* Set the initial height to 0 */
+    line-height: 40px;
     box-sizing: border-box;
-    /* Remove height transition */
+    transition: height 0.3s ease-in-out;
+    transition-delay: 0.1s;
 }
 
 /* Style for dropdown items */
@@ -259,8 +259,7 @@ span {
 
 /* Show dropdown when the parent is hovered */
 .relative:hover .dropdown-container {
-    /* Set a specific height or 'auto' to make it expand as needed */
-    height: auto;
+    height: 85px; /* Increase the height when hovering over the parent */
 }
 
 /* Skew and style for dropdown links */
