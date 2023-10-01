@@ -41,7 +41,7 @@ Watches by Filter
         <hr class="my-4">
 
         <!-- Filter by Price Form -->
-        <div class="bg-gray-200 p-4 rounded-lg">
+        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
             <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY PRICE</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_price' %}">
@@ -63,7 +63,7 @@ Watches by Filter
         </div>
 
         <!-- Filter by Year Form -->
-        <div class="bg-gray-200 p-4 rounded-lg">
+        <div class="col-span-1 bg-gray-200 p-4 rounded-lg">
             <h2 class="text-lg font-semibold text-gray-900 mb-4 text-center bitter-grey-medium">FILTER BY YEAR</h2>
             <div class="w-full flex flex-col items-center">
                 <form method="get" action="{% url 'watches:filtered_watches_by_year' %}">
@@ -83,11 +83,6 @@ Watches by Filter
                 </form>
             </div>
         </div>
-
-    </div> <!-- Close the 'col-span-1 bg-gray-200 p-4 rounded-xl' div here -->
-
-    <div class="col-span-1 sm:col-span-3">
-        <!-- Search Form -->
         <form method="get" action="{% url 'watches:search_items' %}">
             <div class="relative mt-4 mb-4">
                 <label for="search"
@@ -102,12 +97,15 @@ Watches by Filter
         <ul>
             <li>
                 <a href="{% url 'watches:items' %}"
-                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover-bg-gray-500 bitter-black-large text-white">
+                    class="py-2 px-4 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white">
                     Clear
                 </a>
             </li>
         </ul>
 
+    </div>
+
+    <div class="col-span-1 sm:col-span-3">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {% for watch in items %}
             <div class="flex flex-col items-center">
