@@ -265,11 +265,11 @@ span {
 /* Skew and style for dropdown links */
 .relative .dropdown-container a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     font-family: 'Bitter', serif;
-    font-weight: bold;
+    font-weight: 800;
     font-size: 17px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     letter-spacing: 2px;
 }
 
