@@ -235,7 +235,7 @@ span {
     position: absolute;
     left: 0;
     width: 100%;
-    background-color: #3862a0;
+    background-color: #333;
     height: 0;
     line-height: 40px;
     box-sizing: border-box;
@@ -264,7 +264,7 @@ span {
 
 /* Skew and style for dropdown links */
 .relative .dropdown-container a {
-    color: #3862a0;
+    color: white;
     display: block;
     padding: 0 7px 0 7px;
     margin: 0 0 10px;
@@ -280,7 +280,7 @@ span {
     height: 3px;
     bottom: -10px;
     left: 0px;
-    background-color: #3862a0;
+    background-color: #333;
     transition: all 0.2s ease-in-out;
     transform: scale(0, 0);
     visibility: hidden;
