@@ -269,6 +269,7 @@ span {
     font-family: 'Bitter', serif;
     font-weight: 800;
     font-size: 17px;
+    margin-bottom: 2px;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
