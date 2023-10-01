@@ -69,11 +69,7 @@
                     <div class="dropdown-container">
                         <ul>
                             
-                            {% for category in watches.categories.all %}
-                            <li>
-                                <a href="{% url 'watches:items' %}?category={{ category.id }}">{{ category.name }}</a>
-                            </li>
-                            {% endfor %}
+                            
                         </ul>
                     </div>
                 </div>
