@@ -18,6 +18,8 @@ def contact(request):
 
 
 def signup(request):
+    categories = Category.objects.all()
+
     if request.method == 'POST':
         form = SignupForm(request.POST)
 
@@ -29,6 +31,7 @@ def signup(request):
         form = SignupForm()
 
     return render(request, 'core/signup.html',{
-        'form': form
+        'form': form,
+        'categories': categories
     })
 
