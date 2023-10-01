@@ -233,26 +233,90 @@ span {
 .dropdown-container {
     position: absolute;
     display: none;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-/* CSS to show the dropdown when the parent is hovered */
-.relative:hover .dropdown-container {
-    display: block;
+    background-color: #34495e;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    transform: skewX(-25deg);
+    transform-origin: left top;
 }
 
 /* Style for dropdown items */
 .dropdown-item {
+    background: #34495e;
+    position: relative;
+    overflow: hidden;
     padding: 10px;
-    text-decoration: none;
-    color: #333;
 }
 
 /* Hover effect for dropdown items */
 .dropdown-item:hover {
-    background-color: #f1f1f1;
+    background: #e74c3c;
+}
+
+/* Show dropdown when the parent is hovered */
+.relative:hover .dropdown-container {
+    display: block;
+}
+
+/* Skew and style for dropdown links */
+.relative .dropdown-container a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: Arial, Helvetica;
+    font-size: 14px;
+    padding: 1em 2em;
+    transform: skewX(-25deg);
+}
+
+/* Position and style for submenu shadow */
+.relative .dropdown-container::after {
+    content: '';
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+/* Odd and even positioning for submenu items */
+.relative .dropdown-container li:nth-child(odd) {
+    transform: skewX(-25deg) translateX(0);
+}
+
+.relative .dropdown-container li:nth-child(odd) a {
+    transform: skewX(25deg);
+}
+
+.relative .dropdown-container li:nth-child(odd)::after {
+    right: -50%;
+    transform: skewX(-25deg) rotate(3deg);
+}
+
+.relative .dropdown-container li:nth-child(even) {
+    transform: skewX(25deg) translateX(0);
+}
+
+.relative .dropdown-container li:nth-child(even) a {
+    transform: skewX(-25deg);
+}
+
+.relative .dropdown-container li:nth-child(even)::after {
+    left: -50%;
+    transform: skewX(25deg) rotate(3deg);
+}
+
+/* Animation and visibility for submenu items */
+.relative .dropdown-container li {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease-out;
+}
+
+/* Show submenu items on parent hover */
+.relative:hover .dropdown-container li {
+    opacity: 1;
+    visibility: visible;
 }
