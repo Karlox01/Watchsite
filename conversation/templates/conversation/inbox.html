@@ -14,30 +14,22 @@
                     <img src="{{ conversation.item.main_image.url }}" class="w-20 rounded-xl">
                 </div>
                 <div class="flex flex-col">
-                    {% for member in conversation.members.all %}
-                        {% if member != request.user %}
-                            <p class="mb-4"><strong class="bitter-black-large">
-                                {% if conversation.latest_message %}
-                                    {% with last_message=conversation.messages.latest %}
-                                        {{ last_message.created_by.username }}
-                                    {% endwith %}
-                                {% else %}
-                                    {{ member.username }}
-                                {% endif %}
-                                Has sent a message to {{ request.user.username }} on : 
-                            </strong> | {{ conversation.modified_at }}</p>
-                            <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
+                    {% with latest_message=conversation.messages.latest %}
+                        <p class="mb-4"><strong class="bitter-black-large">
+                            {{ latest_message.created_by.username }}
+                            Has sent a message to {{ request.user.username }} on :
+                        </strong> | {{ latest_message.created_at }}</p>
+                    {% endwith %}
+                    <p class="bitter-grey-medium">{{ conversation.item.name }}</p>
 
-                            <!-- Display all offer messages for this conversation -->
-                            {% for offer_message in offer_messages %}
-                                {% if offer_message.conversation == conversation %}
-                                    <div class="offer">
-                                        <p><strong class="bitter-grey-medium">New price suggestion :  
-                                            <i class="fa-solid fa-scale-unbalanced-flip"> </i> 
-                                        </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
-                                    </div>
-                                {% endif %}
-                            {% endfor %}
+                    <!-- Display all offer messages for this conversation -->
+                    {% for offer_message in offer_messages %}
+                        {% if offer_message.conversation == conversation %}
+                            <div class="offer">
+                                <p><strong class="bitter-grey-medium">New price suggestion :
+                                    <i class="fa-solid fa-scale-unbalanced-flip"> </i>
+                                </strong> <span class="bitter-grey-medium">{{ offer_message.content }}</span> </p>
+                            </div>
                         {% endif %}
                     {% endfor %}
                     <!-- Add a container for the buttons to appear inline -->
