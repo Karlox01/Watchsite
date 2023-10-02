@@ -102,13 +102,19 @@ I have carefully designed the website for a visually appealing experience.
 
 - **Watch Selection**: Showcases detailed information about pre-owned watches.
 
+![Filters](readmephotos/Filters.jpg)
+
 ### Submit Offers
 
 - **User-Friendly Form**: Provides a form to submit offers and request callbacks.
 
+![Offer photo](readmephotos/Offer.jpg)
+
 ### Messaging System
 
 - **Communication**: Facilitates discussions between users.
+
+![Inbox](readmephotos/Messages.jpg)
 
 ### User Dashboard
 
