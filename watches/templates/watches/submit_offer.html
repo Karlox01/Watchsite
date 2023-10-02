@@ -5,7 +5,7 @@
 {% block title %}Submit an Offer for {{ item.name }}{% endblock %}
 
 {% block content %}
-<section class="bg-gray-600">
+<section class="bg-gray-700">
     <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <a href="#" class="flex items-center mb-6">
             <img class="h-20 mr-2 w-full" src="https://i.ibb.co/Vjcpfct/cover.png" alt="logo">
@@ -27,7 +27,7 @@
                     <label for="offer_amount" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-600 dark:text-white">Your Offer Amount (£)</label>
                     <input type="text" name="offer_amount" id="offer_amount" class="bg-gray-600 border border-gray-300 text-gray-200 sm:text-sm rounded-lg block w-full p-2.5" required="" oninput="validateNumber(this)">
                 </div>
-                <button type="submit" class="w-1/2 bitter-grey-medium font-semibold text-sm text-white hover:underline mt-2 text-white hover:bg-gray-600">Submit Offer</button>
+                <button type="submit" class="w-1/2 bitter-grey-medium font-semibold text-sm text-white hover:underline mt-2 text-white hover:bg-gray-600 text-center">Submit Offer</button>
             </form>
         </div>
     </div>
