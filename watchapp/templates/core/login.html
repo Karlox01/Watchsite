@@ -17,16 +17,16 @@
                   {% csrf_token %}
                   <div>
                       <label for="username" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white">Username</label>
-                      <input type="text" name="username" id="username" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white" required="">
+                      <input type="text" name="username" id="username" class="w-full py-4 px-6 rounded-xl font-semibold text-center info" required="">
                   </div>
                   <div>
                       <label for="password" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white">Password</label>
-                      <input type="password" name="password" id="password" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white" required="">
+                      <input type="password" name="password" id="password" class="w-full py-4 px-6 rounded-xl font-semibold text-center info" required="">
                   </div>
                   <div class="flex items-center justify-between">
                       <div class="flex items-start">
                           <div class="flex items-center h-5">
-                            <input id="remember" type="checkbox" class="mt-4 w-4 h-4 border bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white">
+                            <input id="remember" type="checkbox" class="mt-4 w-4 h-4 border border-gray-300 rounded bg-gray-700 focus:ring-3 focus:ring-primary-300 ring-offset-gray-800">
                           </div>
                           <div class="ml-3 text-sm mt-2">
                             <label for="remember" class="text-white">Remember me</label>
