@@ -10,9 +10,9 @@
         <a href="#" class="flex items-center mb-6">
             <img class="h-20 mr-2 w-full" src="https://i.ibb.co/Vjcpfct/cover.png" alt="logo">
         </a>
-        <div class="w-full bg-white md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-700 ">
+        <div class="w-full md:mt-0 sm:max-w-md xl:p-0 bg-gray-700 ">
             <div class="text-center mb-2">
-                <h1 class="bitter-grey-medium text-xl font-bold leading-tight tracking-tight text-gray-600 md:text-2xl dark:text-white">
+                <h1 class="bitter-grey-medium text-xl font-bold leading-tight tracking-tight md:text-2xl text-white">
                     Submit an Offer for {{ item.name }}
                 </h1>
             </div>
@@ -24,7 +24,7 @@
                 {% csrf_token %}
                 <!-- Offer amount input -->
                 <div>
-                    <label for="offer_amount" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-gray-600 dark:text-white">Your Offer Amount (£)</label>
+                    <label for="offer_amount" class="bitter-grey-medium text-center block mb-2 text-sm font-semibold text-white">Your Offer Amount (£)</label>
                     <input type="text" name="offer_amount" id="offer_amount" class="bg-gray-600 border border-gray-300 text-gray-200 sm:text-sm rounded-lg block w-full p-2.5" required="" oninput="validateNumber(this)">
                 </div>
                 <button type="submit" class="w-full bitter-grey-medium text-sm mt-2 text-white ">Submit Offer</button>
