@@ -128,6 +128,7 @@ I have carefully designed the website for a visually appealing experience.
 - **Manual Testing**: Tested on various browsers and devices for optimal responsiveness.
 - **Issues and Their Solutions**:
   - *Local CSS Display Issue*: During development, I encountered a problem with local CSS not displaying when the `DEBUG` setting was set to `False` and the project was deployed to Heroku. The solution to this issue was to include [WhiteNoise](http://whitenoise.evans.io/en/stable/) as an intermediary to serve static files efficiently.
+  - *CSS Not displaying properly due to conflicts between Tailwind and Local CSS database , Now resolved on 04/02/2024.
 
 
 ## Deployment
