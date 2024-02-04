@@ -84,19 +84,19 @@ Watches by Filter
     </div>
     <div class="w-full flex justify-between items-center">
         <!-- Search bar -->
+        <label for="search" class="mb-4 sr-only bitter-grey-medium text-center text-gray-700">Search</label>
         <form method="get" action="{% url 'watches:search_items' %}" class="relative mb-4 w-1/2">
-            <label for="search" class="mb-4 sr-only text-white bitter-grey-medium text-center">Search</label>
             <input type="search" id="search" name="query"
-                class="block w-full p-4 text-sm border border-gray-300 rounded-lg bg-gray-700 bitter-grey-medium"
+                class="block w-full p-4 text-sm border border-gray-300 rounded-lg bitter-grey-medium"
                 placeholder="Type & Search" required>
             <button type="submit"
-                class="bitter-grey-medium text-white absolute right-2.5 top-1/2 transform -translate-y-1/2 font-semibold">Search</button>
+                class="text-gray-700  absolute mb-2 right-2.5 top-1/2 transform -translate-y-1/2 font-semibold">Search</button>
         </form>
 
         <!-- Clear button -->
         <div class="w-1/2 px-2">
             <a href="{% url 'watches:items' %}"
-                class="p-3 inline-block bg-gray-700 text-lg rounded-md w-full text-center hover:bg-gray-500 bitter-black-large text-white mb-4">
+                class="p-3 inline-block text-lg rounded-md w-full text-center bitter-black-large text-gray-700 mb-4">
                 Clear
             </a>
         </div>
